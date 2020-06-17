@@ -1,12 +1,13 @@
 import React from 'react';
-import axios from 'axios';
+import Router from 'Components/Router';
+import GlobalStyles from 'Components/GlobalStyles';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header" />
-			<div>Hello</div>
-		</div>
+		<>
+			<Router />
+			<GlobalStyles />
+		</>
 	);
 }
 
