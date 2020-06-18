@@ -2,7 +2,69 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
+import Loader from '../../Components/Loader';
 
-const HomePresenter = () => <div>Home</div>;
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+
+const useStyles = makeStyles({
+	table: {
+		maxWidth: 1200
+	}
+});
+
+const HomePresenter = ({ standings, error, loading }) => {
+	const classes = useStyles();
+	return (
+		<TableContainer>
+			<Table className={classes.table} aria-label="simple table">
+				<TableHead>
+					<TableCell>순위</TableCell>
+					<TableCell>팀</TableCell>
+					<TableCell>경기</TableCell>
+					<TableCell>승</TableCell>
+					<TableCell>무</TableCell>
+					<TableCell>패</TableCell>
+					<TableCell>득점</TableCell>
+					<TableCell>실점</TableCell>
+					<TableCell>득실차</TableCell>
+					<TableCell>승점</TableCell>
+				</TableHead>
+				<TableBody>
+					{standings &&
+						standings.length > 0 &&
+						standings.map((standing) => (
+							<TableRow key={standing.team_id}>
+								<TableCell component="th" scope="row">
+									{standing.rank}
+								</TableCell>
+								<TableCell>{standing.teamName}</TableCell>
+								<TableCell>{standing.all.matchsPlayed}</TableCell>
+								<TableCell>{standing.all.win}</TableCell>
+								<TableCell>{standing.all.draw}</TableCell>
+								<TableCell>{standing.all.lose}</TableCell>
+								<TableCell>{standing.all.goalsFor}</TableCell>
+								<TableCell>{standing.all.goalsAgainst}</TableCell>
+								<TableCell>{standing.goalsDiff}</TableCell>
+								<TableCell>{standing.points}</TableCell>
+							</TableRow>
+						))}
+				</TableBody>
+			</Table>
+		</TableContainer>
+	);
+};
+
+HomePresenter.propTypes = {
+	standing: PropTypes.array,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.string
+};
 
 export default HomePresenter;
