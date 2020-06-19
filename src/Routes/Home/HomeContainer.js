@@ -3,6 +3,10 @@ import HomePresenter from './HomePresenter';
 import { footballApi } from 'api';
 
 export default class extends Component {
+	constructor(props) {
+		super(props);
+	}
+
 	state = {
 		standings: null,
 		error: null,
@@ -16,12 +20,14 @@ export default class extends Component {
 			// 		api: { standings }
 			// 	}
 			// } = await footballApi.leagueTable();
+			const data = await footballApi.leagueTable();
+			console.log(data);
 			// this.setState({
 			// 	standings: standings[0]
 			// });
-			this.setState({
-				error: '테스트용 에러입니다'
-			});
+			// this.setState({
+			// 	error: '테스트용 에러입니다'
+			// });
 		} catch {
 			this.setState({
 				error: '데이터를 찾을 수 없습니다'
@@ -35,7 +41,6 @@ export default class extends Component {
 
 	render() {
 		const { standings, error, loading } = this.state;
-		console.log(standings);
 		return (
 			<HomePresenter standings={standings} error={error} loading={loading} />
 		);

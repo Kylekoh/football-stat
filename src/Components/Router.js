@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import Home from 'Routes/Home';
 import Team from 'Routes/Team';
+import League from 'Routes/League';
 import Header from 'Components/Header';
 
 export default () => (
@@ -15,6 +16,7 @@ export default () => (
 		<Switch>
 			<Route path="/" exact component={Home} />
 			<Route path="/team" exact component={Team} />
+			<Route path="/league/:id" exact component={League} />
 			<Redirect from="*" to="/" />
 		</Switch>
 	</Router>
