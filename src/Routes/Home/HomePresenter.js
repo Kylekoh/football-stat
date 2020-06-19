@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import Loader from '../../Components/Loader';
+import Message from '../../Components/Message';
 import LeagueName from '../../Components/LeagueName';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,7 +13,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
 	tableContainer: {
@@ -33,7 +33,19 @@ const useStyles = makeStyles({
 
 const HomePresenter = ({ standings, error, loading }) => {
 	const classes = useStyles();
-	return (
+	return loading ? (
+		<>
+			<Helmet>
+				<title>Loading | LeagueName</title>
+			</Helmet>
+			<Loader />
+		</>
+	) : error ? (
+		<>
+			<LeagueName />
+			<Message text={error} />
+		</>
+	) : (
 		<>
 			<LeagueName />
 			<TableContainer className={classes.tableContainer}>

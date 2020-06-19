@@ -11,13 +11,16 @@ export default class extends Component {
 
 	async componentDidMount() {
 		try {
-			const {
-				data: {
-					api: { standings }
-				}
-			} = await footballApi.leagueTable();
+			// const {
+			// 	data: {
+			// 		api: { standings }
+			// 	}
+			// } = await footballApi.leagueTable();
+			// this.setState({
+			// 	standings: standings[0]
+			// });
 			this.setState({
-				standings: standings[0]
+				error: '테스트용 에러입니다'
 			});
 		} catch {
 			this.setState({
