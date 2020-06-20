@@ -57,7 +57,7 @@ const LeagueName = (props) => (
 		<Container>
 			<List>
 				<Item>
-					<SLink to="/league/2">
+					<SLink to="/league/524">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/epl_on.png"
 							alt="league-logo"
@@ -66,7 +66,7 @@ const LeagueName = (props) => (
 					</SLink>
 				</Item>
 				<Item>
-					<SLink to="/league/29">
+					<SLink to="/league/775">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/primera_on.png"
 							alt="league-logo"
@@ -75,7 +75,7 @@ const LeagueName = (props) => (
 					</SLink>
 				</Item>
 				<Item>
-					<SLink to="/league/8">
+					<SLink to="/league/754">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/bundesliga_on.png"
 							alt="league-logo"
@@ -84,7 +84,7 @@ const LeagueName = (props) => (
 					</SLink>
 				</Item>
 				<Item>
-					<SLink to="/league/6">
+					<SLink to="/league/891">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/seria_on.png"
 							alt="league-logo"
@@ -93,7 +93,7 @@ const LeagueName = (props) => (
 					</SLink>
 				</Item>
 				<Item>
-					<SLink to="/league/4">
+					<SLink to="/league/525">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/ligue1_on.png"
 							alt="league-logo"
