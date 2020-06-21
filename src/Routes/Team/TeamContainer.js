@@ -37,6 +37,8 @@ export default class extends Component {
 	}
 
 	render() {
-		return <TeamPresenter />;
+		const { teams, error, loading } = this.state;
+		console.log(teams);
+		return <TeamPresenter teams={teams} error={error} loading={loading} />;
 	}
 }
