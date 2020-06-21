@@ -10,8 +10,7 @@ const api = axios.create({
 
 export const footballApi = {
 	// 팀 기본 정보(name, country, venue_name...)
-	// teamInfo: (team_id) => api.get(`/teams/team/${team_id}`),
-	teamInfo: () => api.get(`/teams/team/541`),
+	teamInfo: (team_id) => api.get(`/teams/team/${team_id}`),
 	// 리그 순위 테이블
 	leagueTable: (league_id) => api.get(`/leagueTable/${league_id}`),
 	// 최근 5경기 성적

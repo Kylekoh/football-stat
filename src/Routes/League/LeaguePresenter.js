@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
@@ -72,6 +73,7 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 									<TableCell component="th" scope="row" align="center">
 										{standing.rank}
 									</TableCell>
+
 									<TableCell width="10px" className={classes.logoContainer}>
 										<img
 											src={standing.logo}
@@ -80,8 +82,11 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 										/>
 									</TableCell>
 									<TableCell className={classes.teamContainer}>
-										{standing.teamName}
+										<Link to={`/team/${standing.team_id}`}>
+											{standing.teamName} >
+										</Link>
 									</TableCell>
+
 									<TableCell>{standing.all.matchsPlayed}</TableCell>
 									<TableCell>{standing.all.win}</TableCell>
 									<TableCell>{standing.all.draw}</TableCell>

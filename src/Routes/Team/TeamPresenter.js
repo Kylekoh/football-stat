@@ -15,7 +15,12 @@ const TeamPresenter = ({ teams, error, loading }) =>
 			<Message text={error} />
 		</>
 	) : (
-		<div>{teams.name}</div>
+		<>
+			<div>{teams.name}</div>
+			<img src={teams.logo} alt="logo" />
+			<div>{teams.country}</div>
+			<div>{teams.venue_name}</div>
+		</>
 	);
 
 TeamPresenter.propTypes = {

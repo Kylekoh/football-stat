@@ -27,7 +27,7 @@ export default class extends Component {
 				data: {
 					api: { teams }
 				}
-			} = await footballApi.teamInfo();
+			} = await footballApi.teamInfo(parseId);
 			this.setState({ teams: teams[0] });
 		} catch {
 			this.setState({ error: "Can't find anything" });
