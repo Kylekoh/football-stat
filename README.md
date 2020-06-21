@@ -10,7 +10,8 @@ Footbale stat site showing league and team info.
 
 ## API Verbs
 
-- [x] Team Info
 - [x] League Table
+- [x] Team Info
+- [x] Team Record
 - [x] Recent Game Score
 - [x] Squad

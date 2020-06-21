@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LeaguePresenter from './LeaguePresenter';
 import { footballApi } from 'api';
+import { ConsoleWriter } from 'istanbul-lib-report';
 
 export default class extends Component {
 	constructor(props) {
@@ -8,6 +9,7 @@ export default class extends Component {
 	}
 
 	state = {
+		leagueId: null,
 		standings: null,
 		error: null,
 		loading: true
@@ -15,12 +17,18 @@ export default class extends Component {
 
 	componentDidMount() {
 		this.getData(this.props.match.params.id);
+		this.setState({
+			leagueId: this.props.match.params.id
+		});
 	}
 
 	componentWillReceiveProps(nextProps) {
 		if (this.props.match.params.id !== nextProps.match.params.id) {
 			this.getData(nextProps.match.params.id);
 		}
+		this.setState({
+			leagueId: nextProps.match.params.id
+		});
 	}
 
 	getData = async (id) => {
@@ -48,9 +56,14 @@ export default class extends Component {
 	};
 
 	render() {
-		const { standings, error, loading } = this.state;
+		const { leagueId, standings, error, loading } = this.state;
 		return (
-			<LeaguePresenter standings={standings} error={error} loading={loading} />
+			<LeaguePresenter
+				leagueId={leagueId}
+				standings={standings}
+				error={error}
+				loading={loading}
+			/>
 		);
 	}
 }

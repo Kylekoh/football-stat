@@ -19,20 +19,40 @@ const useStyles = makeStyles({
 	tableContainer: {
 		display: 'flex',
 		justifyContent: 'center',
-		marginTop: '30px'
+		marginTop: '30px',
+		overflow: 'hidden',
+		marginBottom: '100px'
 	},
 	table: {
-		maxWidth: 1200
+		maxWidth: 1200,
+		fontSize: '20px'
 	},
-	logoContainer: {},
+	tableHeadRow: {
+		backgroundColor: '#F7F7F7',
+		borderTop: '1px solid #494949'
+	},
+	tableHead: {
+		fontWeight: '800',
+		fontSize: '16px'
+	},
+	rank: {
+		fontWeight: 800,
+		fontSize: '16px'
+	},
+	logoContainer: {
+		paddingRight: '0px'
+	},
 	logo: {
 		verticalAlign: 'middle',
 		width: '30px',
 		height: '30px'
+	},
+	tableCellRow: {
+		fontSize: '20px'
 	}
 });
 
-const LeaguePresenter = ({ standings, error, loading }) => {
+const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 	const classes = useStyles();
 	return loading ? (
 		<>
@@ -51,30 +71,60 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 			<TableContainer className={classes.tableContainer}>
 				<Table className={classes.table} aria-label="simple table">
 					<TableHead>
-						<TableRow>
-							<TableCell align="center">순위</TableCell>
-							<TableCell></TableCell>
-							<TableCell>팀</TableCell>
-							<TableCell>경기</TableCell>
-							<TableCell>승</TableCell>
-							<TableCell>무</TableCell>
-							<TableCell>패</TableCell>
-							<TableCell>득점</TableCell>
-							<TableCell>실점</TableCell>
-							<TableCell>득실차</TableCell>
-							<TableCell>승점</TableCell>
+						<TableRow className={classes.tableHeadRow}>
+							<TableCell className={classes.tableHead} align="center">
+								순위
+							</TableCell>
+							<TableCell className={classes.tableHead}></TableCell>
+							<TableCell className={classes.tableHead}>팀</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								경기
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								승
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								무
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								패
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								득점
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								실점
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								득실차
+							</TableCell>
+							<TableCell className={classes.tableHead} align="center">
+								승점
+							</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
 						{standings &&
 							standings.length > 0 &&
 							standings.map((standing) => (
-								<TableRow key={standing.team_id}>
-									<TableCell component="th" scope="row" align="center">
+								<TableRow
+									className={classes.tableCellRow}
+									key={standing.team_id}
+								>
+									<TableCell
+										component="th"
+										scope="row"
+										align="center"
+										className={classes.rank}
+									>
 										{standing.rank}
 									</TableCell>
 
-									<TableCell width="10px" className={classes.logoContainer}>
+									<TableCell
+										width="10px"
+										className={classes.logoContainer}
+										align="center"
+									>
 										<img
 											src={standing.logo}
 											className={classes.logo}
@@ -82,19 +132,28 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 										/>
 									</TableCell>
 									<TableCell className={classes.teamContainer}>
-										<Link to={`/team/${standing.team_id}`}>
+										<Link
+											to={{
+												pathname: `/team/${standing.team_id}`,
+												state: { leagueId: `${leagueId}` }
+											}}
+										>
 											{standing.teamName} >
 										</Link>
 									</TableCell>
 
-									<TableCell>{standing.all.matchsPlayed}</TableCell>
-									<TableCell>{standing.all.win}</TableCell>
-									<TableCell>{standing.all.draw}</TableCell>
-									<TableCell>{standing.all.lose}</TableCell>
-									<TableCell>{standing.all.goalsFor}</TableCell>
-									<TableCell>{standing.all.goalsAgainst}</TableCell>
-									<TableCell>{standing.goalsDiff}</TableCell>
-									<TableCell>{standing.points}</TableCell>
+									<TableCell align="center">
+										{standing.all.matchsPlayed}
+									</TableCell>
+									<TableCell align="center">{standing.all.win}</TableCell>
+									<TableCell align="center">{standing.all.draw}</TableCell>
+									<TableCell align="center">{standing.all.lose}</TableCell>
+									<TableCell align="center">{standing.all.goalsFor}</TableCell>
+									<TableCell align="center">
+										{standing.all.goalsAgainst}
+									</TableCell>
+									<TableCell align="center">{standing.goalsDiff}</TableCell>
+									<TableCell align="center">{standing.points}</TableCell>
 								</TableRow>
 							))}
 					</TableBody>
@@ -105,6 +164,7 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 };
 
 LeaguePresenter.propTypes = {
+	leagueId: PropTypes.number,
 	standing: PropTypes.array,
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.string

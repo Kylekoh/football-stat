@@ -9,6 +9,7 @@ export default class extends Component {
 
 	state = {
 		teams: null,
+		statistics: null,
 		error: null,
 		loading: true
 	};
@@ -20,15 +21,30 @@ export default class extends Component {
 			}
 		} = this.props;
 
-		const parseId = parseInt(id);
+		const {
+			location: {
+				state: { leagueId }
+			}
+		} = this.props;
+
+		const league_id = parseInt(leagueId);
+		const team_id = parseInt(id);
 
 		try {
 			const {
 				data: {
 					api: { teams }
 				}
-			} = await footballApi.teamInfo(parseId);
+			} = await footballApi.teamInfo(team_id);
 			this.setState({ teams: teams[0] });
+
+			const {
+				data: {
+					api: { statistics }
+				}
+			} = await footballApi.teamRecord(league_id, team_id);
+			this.setState({ statistics });
+			console.log(this.state.statistics);
 		} catch {
 			this.setState({ error: "Can't find anything" });
 		} finally {
@@ -37,8 +53,14 @@ export default class extends Component {
 	}
 
 	render() {
-		const { teams, error, loading } = this.state;
-		console.log(teams);
-		return <TeamPresenter teams={teams} error={error} loading={loading} />;
+		const { teams, statistics, error, loading } = this.state;
+		return (
+			<TeamPresenter
+				statistics={statistics}
+				teams={teams}
+				error={error}
+				loading={loading}
+			/>
+		);
 	}
 }

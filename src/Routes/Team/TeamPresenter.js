@@ -5,7 +5,7 @@ import Helmet from 'react-helmet';
 import Loader from '../../Components/Loader';
 import Message from '../../Components/Message';
 
-const TeamPresenter = ({ teams, error, loading }) =>
+const TeamPresenter = ({ teams, statistics, error, loading }) =>
 	loading ? (
 		<>
 			<Loader />
@@ -20,11 +20,15 @@ const TeamPresenter = ({ teams, error, loading }) =>
 			<img src={teams.logo} alt="logo" />
 			<div>{teams.country}</div>
 			<div>{teams.venue_name}</div>
+			<div>{statistics.goals.goalsAgainst.home}</div>
+			<div>{statistics.goals.goalsAgainst.away}</div>
+			<div>{statistics.goals.goalsAgainst.total}</div>
 		</>
 	);
 
 TeamPresenter.propTypes = {
 	teams: PropTypes.object,
+	statistics: PropTypes.object,
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.string
 };
