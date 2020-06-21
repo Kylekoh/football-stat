@@ -5,7 +5,7 @@ import { footballApi } from 'api';
 export default class extends Component {
 	constructor(props) {
 		super(props);
-		// console.log(props);
+		console.log(props);
 	}
 
 	state = {
@@ -14,12 +14,18 @@ export default class extends Component {
 		loading: true
 	};
 
-	async componentDidMount() {
-		const {
-			match: {
-				params: { id }
-			}
-		} = this.props;
+	componentDidMount() {
+		this.getData(this.props.match.params.id);
+		console.log();
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if (this.props.match.params.id !== nextProps.match.params.id) {
+			this.getData(nextProps.match.params.id);
+		}
+	}
+
+	getData = async (id) => {
 		const parseId = parseInt(id);
 
 		try {
@@ -28,8 +34,8 @@ export default class extends Component {
 					api: { standings }
 				}
 			} = await footballApi.leagueTable(parseId);
-			console.log(standings);
 			this.setState({
+				loading: true,
 				standings: standings[0]
 			});
 		} catch {
@@ -41,7 +47,7 @@ export default class extends Component {
 				loading: false
 			});
 		}
-	}
+	};
 
 	render() {
 		const { standings, error, loading } = this.state;

@@ -42,7 +42,6 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 		</>
 	) : error ? (
 		<>
-			<LeagueName />
 			<Message text={error} />
 		</>
 	) : (
@@ -51,17 +50,19 @@ const LeaguePresenter = ({ standings, error, loading }) => {
 			<TableContainer className={classes.tableContainer}>
 				<Table className={classes.table} aria-label="simple table">
 					<TableHead>
-						<TableCell align="center">순위</TableCell>
-						<TableCell></TableCell>
-						<TableCell>팀</TableCell>
-						<TableCell>경기</TableCell>
-						<TableCell>승</TableCell>
-						<TableCell>무</TableCell>
-						<TableCell>패</TableCell>
-						<TableCell>득점</TableCell>
-						<TableCell>실점</TableCell>
-						<TableCell>득실차</TableCell>
-						<TableCell>승점</TableCell>
+						<TableRow>
+							<TableCell align="center">순위</TableCell>
+							<TableCell></TableCell>
+							<TableCell>팀</TableCell>
+							<TableCell>경기</TableCell>
+							<TableCell>승</TableCell>
+							<TableCell>무</TableCell>
+							<TableCell>패</TableCell>
+							<TableCell>득점</TableCell>
+							<TableCell>실점</TableCell>
+							<TableCell>득실차</TableCell>
+							<TableCell>승점</TableCell>
+						</TableRow>
 					</TableHead>
 					<TableBody>
 						{standings &&

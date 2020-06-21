@@ -25,7 +25,6 @@ const Item = styled.li`
 `;
 
 const HeaderComponent = (props) => (
-	// console.log(props)
 	<>
 		<Header>
 			<List>
@@ -33,7 +32,7 @@ const HeaderComponent = (props) => (
 					<Link to="/team">Team</Link>
 				</Item>
 				<Item>
-					<Link to="/team">League</Link>
+					<Link to="/league/524">League</Link>
 				</Item>
 			</List>
 		</Header>

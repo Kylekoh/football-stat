@@ -3,12 +3,14 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Redirect,
-	Switch
+	Switch,
+	withRouter
 } from 'react-router-dom';
 import Home from 'Routes/Home';
 import Team from 'Routes/Team';
 import League from 'Routes/League';
 import Header from 'Components/Header';
+import LeagueName from 'Components/LeagueName';
 
 export default () => (
 	<Router>

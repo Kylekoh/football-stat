@@ -42,12 +42,12 @@ const HomePresenter = ({ standings, error, loading }) => {
 		</>
 	) : error ? (
 		<>
-			<LeagueName />
+			{/* <LeagueName /> */}
 			<Message text={error} />
 		</>
 	) : (
 		<>
-			<LeagueName />
+			{/* <LeagueName /> */}
 			<TableContainer className={classes.tableContainer}>
 				<Table className={classes.table} aria-label="simple table">
 					<TableHead>
