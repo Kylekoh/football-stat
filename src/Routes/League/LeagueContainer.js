@@ -5,7 +5,6 @@ import { footballApi } from 'api';
 export default class extends Component {
 	constructor(props) {
 		super(props);
-		console.log(props);
 	}
 
 	state = {
@@ -16,7 +15,6 @@ export default class extends Component {
 
 	componentDidMount() {
 		this.getData(this.props.match.params.id);
-		console.log();
 	}
 
 	componentWillReceiveProps(nextProps) {
