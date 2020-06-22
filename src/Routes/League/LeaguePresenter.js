@@ -7,6 +7,7 @@ import Loader from '../../Components/Loader';
 import Message from '../../Components/Message';
 import LeagueName from '../../Components/LeagueName';
 
+import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -44,13 +45,24 @@ const useStyles = makeStyles({
 	},
 	logo: {
 		verticalAlign: 'middle',
-		width: '30px',
-		height: '30px'
+		width: '35px',
+		height: '35px'
 	},
-	tableCellRow: {
-		fontSize: '20px'
+	points: {
+		backgroundColor: 'rgba(64,134,255,.06)',
+		fontWeight: 600
 	}
 });
+
+const CustomTableCell = withStyles((theme) => ({
+	head: {
+		backgroundColor: 'black',
+		color: 'red'
+	},
+	body: {
+		fontSize: '17px'
+	}
+}))(TableCell);
 
 const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 	const classes = useStyles();
@@ -98,7 +110,11 @@ const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 							<TableCell className={classes.tableHead} align="center">
 								득실차
 							</TableCell>
-							<TableCell className={classes.tableHead} align="center">
+							<TableCell
+								className={classes.tableHead}
+								align="center"
+								style={{ color: '#1760f0' }}
+							>
 								승점
 							</TableCell>
 						</TableRow>
@@ -110,17 +126,18 @@ const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 								<TableRow
 									className={classes.tableCellRow}
 									key={standing.team_id}
+									style={{ fontSize: '20px' }}
 								>
-									<TableCell
+									<CustomTableCell
 										component="th"
 										scope="row"
 										align="center"
 										className={classes.rank}
 									>
 										{standing.rank}
-									</TableCell>
+									</CustomTableCell>
 
-									<TableCell
+									<CustomTableCell
 										width="10px"
 										className={classes.logoContainer}
 										align="center"
@@ -130,8 +147,8 @@ const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 											className={classes.logo}
 											alt="team-logo"
 										/>
-									</TableCell>
-									<TableCell className={classes.teamContainer}>
+									</CustomTableCell>
+									<CustomTableCell className={classes.teamContainer}>
 										<Link
 											to={{
 												pathname: `/team/${standing.team_id}`,
@@ -140,20 +157,32 @@ const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 										>
 											{standing.teamName} >
 										</Link>
-									</TableCell>
+									</CustomTableCell>
 
-									<TableCell align="center">
+									<CustomTableCell align="center">
 										{standing.all.matchsPlayed}
-									</TableCell>
-									<TableCell align="center">{standing.all.win}</TableCell>
-									<TableCell align="center">{standing.all.draw}</TableCell>
-									<TableCell align="center">{standing.all.lose}</TableCell>
-									<TableCell align="center">{standing.all.goalsFor}</TableCell>
-									<TableCell align="center">
+									</CustomTableCell>
+									<CustomTableCell align="center">
+										{standing.all.win}
+									</CustomTableCell>
+									<CustomTableCell align="center">
+										{standing.all.draw}
+									</CustomTableCell>
+									<CustomTableCell align="center">
+										{standing.all.lose}
+									</CustomTableCell>
+									<CustomTableCell align="center">
+										{standing.all.goalsFor}
+									</CustomTableCell>
+									<CustomTableCell align="center">
 										{standing.all.goalsAgainst}
-									</TableCell>
-									<TableCell align="center">{standing.goalsDiff}</TableCell>
-									<TableCell align="center">{standing.points}</TableCell>
+									</CustomTableCell>
+									<CustomTableCell align="center">
+										{standing.goalsDiff}
+									</CustomTableCell>
+									<CustomTableCell align="center" className={classes.points}>
+										{standing.points}
+									</CustomTableCell>
 								</TableRow>
 							))}
 					</TableBody>
