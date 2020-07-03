@@ -1,12 +1,46 @@
 import React from 'react';
-import Router from 'Components/Router';
 import GlobalStyles from 'Components/GlobalStyles';
+
+// import components for react-route
+import {
+	BrowserRouter as Router,
+	Route,
+	Redirect,
+	Switch
+} from 'react-router-dom';
+import Home from 'Routes/Home';
+import Team from 'Routes/Team';
+import League from 'Routes/League';
+import Header from 'Components/Header';
+
+// import components for redux
+import modules from './modules';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import ReduxThunk from 'redux-thunk';
+
+const store = createStore(
+	modules,
+	composeWithDevTools(applyMiddleware(ReduxThunk))
+);
 
 function App() {
 	return (
 		<>
-			<Router />
-			<GlobalStyles />
+			{' '}
+			<Provider store={store}>
+				<Router>
+					<Header />
+					<Switch>
+						<Route path="/" exact component={Home} />
+						<Route path="/league/:id" exact component={League} />
+						<Route path="/team/:id" exact component={Team} />
+						<Redirect from="*" to="/" />
+					</Switch>
+				</Router>
+				<GlobalStyles />
+			</Provider>
 		</>
 	);
 }

@@ -44,7 +44,6 @@ export default class extends Component {
 				}
 			} = await footballApi.teamRecord(league_id, team_id);
 			this.setState({ statistics });
-			console.log(this.state.statistics);
 		} catch {
 			this.setState({ error: "Can't find anything" });
 		} finally {
