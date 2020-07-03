@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Helmet from 'react-helmet';
 import Loader from './Loader';
 import Message from './Message';
@@ -64,7 +63,12 @@ const CustomTableCell = withStyles((theme) => ({
 	}
 }))(TableCell);
 
-const LeagueTable = ({ leagueId, standings, error, loading }) => {
+const LeagueTable = ({ data, error, loading }) => {
+	const {
+		data: {
+			api: { standings }
+		}
+	} = data;
 	const classes = useStyles();
 	return loading ? (
 		<>
@@ -120,9 +124,10 @@ const LeagueTable = ({ leagueId, standings, error, loading }) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
+						{console.log(standings)}
 						{standings &&
 							standings.length > 0 &&
-							standings.map((standing) => (
+							standings[0].map((standing) => (
 								<TableRow
 									className={classes.tableCellRow}
 									key={standing.team_id}
@@ -151,14 +156,13 @@ const LeagueTable = ({ leagueId, standings, error, loading }) => {
 									<CustomTableCell className={classes.teamContainer}>
 										<Link
 											to={{
-												pathname: `/team/${standing.team_id}`,
-												state: { leagueId: `${leagueId}` }
+												pathname: `/team/${standing.team_id}`
+												// state: { leagueId: `${leagueId}` }
 											}}
 										>
 											{standing.teamName} >
 										</Link>
 									</CustomTableCell>
-
 									<CustomTableCell align="center">
 										{standing.all.matchsPlayed}
 									</CustomTableCell>
