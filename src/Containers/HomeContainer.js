@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import HomePresenter from './HomePresenter';
-import { footballApi } from 'api';
+import Home from '../Components/Home';
+import { footballApi } from '../api';
 
 export default class extends Component {
 	constructor(props) {
@@ -39,8 +39,6 @@ export default class extends Component {
 
 	render() {
 		const { standings, error, loading } = this.state;
-		return (
-			<HomePresenter standings={standings} error={error} loading={loading} />
-		);
+		return <Home standings={standings} error={error} loading={loading} />;
 	}
 }

@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import Loader from '../../Components/Loader';
-import Message from '../../Components/Message';
-import LeagueName from '../../Components/LeagueName';
+import Loader from './Loader';
+import Message from './Message';
+import LeagueName from './LeagueName';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';

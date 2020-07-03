@@ -8,9 +8,10 @@ import {
 	Redirect,
 	Switch
 } from 'react-router-dom';
-import Home from 'Routes/Home';
-import Team from 'Routes/Team';
-import League from 'Routes/League';
+
+import HomeContainer from './Containers/HomeContainer';
+import LeagueTableContainer from './Containers/LeagueTableContainer';
+import TeamInfoContainer from './Containers/TeamInfoContainer';
 import Header from 'Components/Header';
 
 // import components for redux
@@ -33,9 +34,9 @@ function App() {
 				<Router>
 					<Header />
 					<Switch>
-						<Route path="/" exact component={Home} />
-						<Route path="/league/:id" exact component={League} />
-						<Route path="/team/:id" exact component={Team} />
+						<Route path="/" exact component={HomeContainer} />
+						<Route path="/league/:id" exact component={LeagueTableContainer} />
+						<Route path="/team/:id" exact component={TeamInfoContainer} />
 						<Redirect from="*" to="/" />
 					</Switch>
 				</Router>

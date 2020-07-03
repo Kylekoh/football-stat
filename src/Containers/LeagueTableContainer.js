@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import LeaguePresenter from './LeaguePresenter';
-import { footballApi } from 'api';
-import { ConsoleWriter } from 'istanbul-lib-report';
+import LeagueTable from '../Components/LeagueTable';
+import { footballApi } from '../api';
+import { createTypeAnnotationBasedOnTypeof } from '@babel/types';
 
 export default class extends Component {
 	constructor(props) {
@@ -40,6 +40,7 @@ export default class extends Component {
 					api: { standings }
 				}
 			} = await footballApi.leagueTable(parseId);
+			console.log(this.state.standings);
 			this.setState({
 				loading: true,
 				standings: standings[0]
@@ -58,7 +59,7 @@ export default class extends Component {
 	render() {
 		const { leagueId, standings, error, loading } = this.state;
 		return (
-			<LeaguePresenter
+			<LeagueTable
 				leagueId={leagueId}
 				standings={standings}
 				error={error}

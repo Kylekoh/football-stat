@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import Loader from '../../Components/Loader';
-import Message from '../../Components/Message';
+import Loader from './Loader';
+import Message from './Message';
 
 const Container = styled.div`
 	font-size: 12px;

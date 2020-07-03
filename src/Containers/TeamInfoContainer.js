@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import TeamPresenter from './TeamPresenter';
-import { footballApi } from 'api';
+import TeamInfo from '../Components/TeamInfo';
+import { footballApi } from '../api';
 
 export default class extends Component {
 	constructor(props) {
@@ -54,7 +54,7 @@ export default class extends Component {
 	render() {
 		const { teams, statistics, error, loading } = this.state;
 		return (
-			<TeamPresenter
+			<TeamInfo
 				statistics={statistics}
 				teams={teams}
 				error={error}

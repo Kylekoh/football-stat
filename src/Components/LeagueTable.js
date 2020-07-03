@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Helmet from 'react-helmet';
-import Loader from '../../Components/Loader';
-import Message from '../../Components/Message';
-import LeagueName from '../../Components/LeagueName';
+import Loader from './Loader';
+import Message from './Message';
+import LeagueName from './LeagueName';
 
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -64,7 +64,7 @@ const CustomTableCell = withStyles((theme) => ({
 	}
 }))(TableCell);
 
-const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
+const LeagueTable = ({ leagueId, standings, error, loading }) => {
 	const classes = useStyles();
 	return loading ? (
 		<>
@@ -192,11 +192,11 @@ const LeaguePresenter = ({ leagueId, standings, error, loading }) => {
 	);
 };
 
-LeaguePresenter.propTypes = {
+LeagueTable.propTypes = {
 	leagueId: PropTypes.number,
 	standing: PropTypes.array,
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.string
 };
 
-export default LeaguePresenter;
+export default LeagueTable;
