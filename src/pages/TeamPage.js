@@ -1,10 +1,21 @@
 import React from 'react';
 import TeamInfoContainer from '../Containers/TeamInfoContainer';
 
-const Teampage = () => {
+const Teampage = (props) => {
+	const {
+		match: {
+			params: { id }
+		}
+	} = props;
+
+	const {
+		location: {
+			state: { leagueId }
+		}
+	} = props;
 	return (
 		<div>
-			<TeamInfoContainer />
+			<TeamInfoContainer id={id} leagueId={leagueId} />
 		</div>
 	);
 };

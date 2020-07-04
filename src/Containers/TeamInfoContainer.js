@@ -1,65 +1,78 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import TeamInfo from '../Components/TeamInfo';
-import { footballApi } from '../api';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+import { getTeamInfo } from '../modules/Team';
 
-export default class extends Component {
-	constructor(props) {
-		super(props);
-	}
+const TeamInfoContainer = (props) => {
+	const league_id = parseInt(props.leagueId);
+	const team_id = parseInt(props.id);
+	const dispatch = useDispatch();
 
-	state = {
-		teams: null,
-		statistics: null,
-		error: null,
-		loading: true
-	};
+	useEffect(() => {
+		dispatch(getTeamInfo(team_id));
+	}, [dispatch, team_id]);
 
-	async componentDidMount() {
-		const {
-			match: {
-				params: { id }
-			}
-		} = this.props;
+	// const { loading, data, error } = useSelector((state) => console.log(state));
+	const { loading, data, error } = useSelector(
+		(state) => state.Team.infos,
+		shallowEqual
+	);
+	// useSelector((state) => console.log(state));
 
-		const {
-			location: {
-				state: { leagueId }
-			}
-		} = this.props;
+	if (!data) return null;
 
-		const league_id = parseInt(leagueId);
-		const team_id = parseInt(id);
+	return (
+		<TeamInfo
+			// statistics={statistics}
+			data={data}
+			error={error}
+			loading={loading}
+		/>
+	);
+};
 
-		try {
-			const {
-				data: {
-					api: { teams }
-				}
-			} = await footballApi.teamInfo(team_id);
-			this.setState({ teams: teams[0] });
+export default TeamInfoContainer;
 
-			const {
-				data: {
-					api: { statistics }
-				}
-			} = await footballApi.teamRecord(league_id, team_id);
-			this.setState({ statistics });
-		} catch {
-			this.setState({ error: "Can't find anything" });
-		} finally {
-			this.setState({ loading: false });
-		}
-	}
+// export default class extends Component {
+// 	state = {
+// 		teams: null,
+// 		statistics: null,
+// 		error: null,
+// 		loading: true
+// 	};
 
-	render() {
-		const { teams, statistics, error, loading } = this.state;
-		return (
-			<TeamInfo
-				statistics={statistics}
-				teams={teams}
-				error={error}
-				loading={loading}
-			/>
-		);
-	}
-}
+// 	async componentDidMount() {
+// 		// const league_id = parseInt(leagueId);
+// 		// const team_id = parseInt(id);
+// 		// try {
+// 		// 	const {
+// 		// 		data: {
+// 		// 			api: { teams }
+// 		// 		}
+// 		// 	} = await footballApi.teamInfo(team_id);
+// 		// 	this.setState({ teams: teams[0] });
+// 		// 	const {
+// 		// 		data: {
+// 		// 			api: { statistics }
+// 		// 		}
+// 		// 	} = await footballApi.teamRecord(league_id, team_id);
+// 		// 	this.setState({ statistics });
+// 		// } catch {
+// 		// 	this.setState({ error: "Can't find anything" });
+// 		// } finally {
+// 		// 	this.setState({ loading: false });
+// 		// }
+// 	}
+
+// 	render() {
+// 		const { teams, statistics, error, loading } = this.state;
+// 		return (
+// 			<TeamInfo
+// 				statistics={statistics}
+// 				teams={teams}
+// 				error={error}
+// 				loading={loading}
+// 			/>
+// 		);
+// 	}
+// }

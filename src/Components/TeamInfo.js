@@ -34,8 +34,15 @@ const StatContainer = styled.div`
 	grid-template-columns: repeat(4, 1fr);
 `;
 
-const TeamPresenter = ({ teams, statistics, error, loading }) =>
-	loading ? (
+const TeamInfo = ({ data, error, loading }) => {
+	const {
+		data: {
+			api: { teams }
+		}
+	} = data;
+	console.log(teams);
+
+	return loading ? (
 		<>
 			<Loader />
 		</>
@@ -47,41 +54,29 @@ const TeamPresenter = ({ teams, statistics, error, loading }) =>
 		<>
 			<Container>
 				<ImageContainer>
-					<Image src={teams.logo} alt="logo" />
+					<Image src={teams[0].logo} alt="logo" />
 					<div>
-						<div>{teams.name}</div>
+						<div>{teams[0].name}</div>
 						<div>
 							<h3>나라</h3>
-							<span>{teams.country}</span>
+							<span>{teams[0].country}</span>
 						</div>
 						<div>
 							<h3>구장</h3>
-							<span>{teams.venue_name}</span>
+							<span>{teams[0].venue_name}</span>
 						</div>
 					</div>
 				</ImageContainer>
-				<div>
-					<span>19/20시즌</span>
-					<StatContainer>
-						<div>{statistics.goals.goalsAgainst.home}</div>
-						<div>{statistics.goals.goalsAgainst.away}</div>
-						<div>{statistics.goals.goalsAgainst.total}</div>
-						<div>{statistics.goals.goalsAgainst.away}</div>
-						<div>{statistics.goals.goalsAgainst.total}</div>
-						<div>{statistics.goals.goalsAgainst.away}</div>
-						<div>{statistics.goals.goalsAgainst.total}</div>
-						<div>{statistics.goals.goalsAgainst.away}</div>
-					</StatContainer>
-				</div>
 			</Container>
 		</>
 	);
+};
 
-TeamPresenter.propTypes = {
+TeamInfo.propTypes = {
 	teams: PropTypes.object,
 	statistics: PropTypes.object,
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.string
 };
 
-export default TeamPresenter;
+export default TeamInfo;
