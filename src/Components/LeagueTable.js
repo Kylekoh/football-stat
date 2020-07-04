@@ -124,9 +124,8 @@ const LeagueTable = ({ data, error, loading }) => {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{console.log(standings)}
 						{standings &&
-							standings.length > 0 &&
+							standings[0].length > 0 &&
 							standings[0].map((standing) => (
 								<TableRow
 									className={classes.tableCellRow}
