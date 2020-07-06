@@ -8,6 +8,12 @@ const globalStyles = createGlobalStyle`
         text-decoration: none;
         color: inherit;
     }
+
+    p, span, h3, h2, ul {
+        padding: 0;
+        margin: 0;
+    }
+
     *{
         box-sizing:border-box;
     }

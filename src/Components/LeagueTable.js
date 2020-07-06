@@ -21,59 +21,59 @@ const useStyles = makeStyles({
 		justifyContent: 'center',
 		marginTop: '30px',
 		overflow: 'hidden',
-		marginBottom: '100px'
+		marginBottom: '100px',
 	},
 	table: {
 		maxWidth: 1200,
-		fontSize: '20px'
+		fontSize: '20px',
 	},
 	tableHeadRow: {
 		backgroundColor: '#F7F7F7',
-		borderTop: '1px solid #494949'
+		borderTop: '1px solid #494949',
 	},
 	tableHead: {
 		fontWeight: '800',
-		fontSize: '16px'
+		fontSize: '16px',
 	},
 	rank: {
 		fontWeight: 800,
-		fontSize: '16px'
+		fontSize: '16px',
 	},
 	logoContainer: {
-		paddingRight: '0px'
+		paddingRight: '0px',
 	},
 	logo: {
 		verticalAlign: 'middle',
 		width: '35px',
-		height: '35px'
+		height: '35px',
 	},
 	points: {
 		backgroundColor: 'rgba(64,134,255,.06)',
-		fontWeight: 600
-	}
+		fontWeight: 600,
+	},
 });
 
 const CustomTableCell = withStyles((theme) => ({
 	head: {
 		backgroundColor: 'black',
-		color: 'red'
+		color: 'red',
 	},
 	body: {
-		fontSize: '17px'
-	}
+		fontSize: '17px',
+	},
 }))(TableCell);
 
 const LeagueTable = ({ data, error, loading, leagueId }) => {
 	const {
 		data: {
-			api: { standings }
-		}
+			api: { standings },
+		},
 	} = data;
 	const classes = useStyles();
 	return loading ? (
 		<>
 			<Helmet>
-				<title>Loading | LeagueName</title>
+				<title>Loading | 리그순위 </title>
 			</Helmet>
 			<Loader />
 		</>
@@ -83,6 +83,9 @@ const LeagueTable = ({ data, error, loading, leagueId }) => {
 		</>
 	) : (
 		<>
+			<Helmet>
+				<title>리그순위</title>
+			</Helmet>
 			<LeagueName />
 			<TableContainer className={classes.tableContainer}>
 				<Table className={classes.table} aria-label="simple table">
@@ -156,10 +159,10 @@ const LeagueTable = ({ data, error, loading, leagueId }) => {
 										<Link
 											to={{
 												pathname: `/team/${standing.team_id}`,
-												state: { leagueId: `${leagueId}` }
+												state: { leagueId: `${leagueId}` },
 											}}
 										>
-											{standing.teamName} >
+											{standing.teamName}
 										</Link>
 									</CustomTableCell>
 									<CustomTableCell align="center">
@@ -199,7 +202,7 @@ LeagueTable.propTypes = {
 	leagueId: PropTypes.number,
 	standing: PropTypes.array,
 	loading: PropTypes.bool.isRequired,
-	error: PropTypes.string
+	error: PropTypes.string,
 };
 
 export default LeagueTable;

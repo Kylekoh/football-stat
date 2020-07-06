@@ -6,7 +6,7 @@ import {
 	BrowserRouter as Router,
 	Route,
 	Redirect,
-	Switch
+	Switch,
 } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
@@ -29,7 +29,6 @@ const store = createStore(
 function App() {
 	return (
 		<>
-			{' '}
 			<Provider store={store}>
 				<Router>
 					<Header />

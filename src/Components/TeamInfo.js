@@ -14,37 +14,81 @@ const Container = styled.div`
 	height: 400px;
 	justify-content: center;
 	align-items: center;
-	background-color: salmon;
 	margin-top: 50px;
+	border: 0.3px solid gray;
 `;
 
 const MainContainer = styled.div`
 	display: flex;
 	flex-direction: row;
+	width: 80%;
+	align-items: center;
+	justify-content: flex-start;
+`;
+const ImageContainer = styled.div`
+	width: 200px;
+	height: 200px;
+	border: 1px solid gray;
+	border-radius: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 const Image = styled.img`
-	height: 120px;
-	width: 120px;
+	height: 10rem;
+	width: 10rem;
 	background-size: cover;
 	border-radius: 180px;
 `;
 
+const InfoContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-left: 50px;
+`;
+
+const TeamName = styled.h2`
+	margin-left: 12px;
+	font-size: 3rem;
+	font-weight: 900;
+	margin: 0;
+`;
+
 const StatContainer = styled.ul`
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	margin-top: 30px;
+	grid-gap: 12px;
+	grid-template-columns: repeat(2, 1fr);
+`;
+
+const Stat = styled.li`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 8px 20px 8px 0px;
+
+	h3 {
+		color: gray;
+		font-size: 1.2rem;
+	}
+	p {
+		font-size: 1rem;
+	}
 `;
 
 const TeamInfo = ({ data, error, loading }) => {
 	const {
 		data: {
-			api: { teams }
-		}
+			api: { teams },
+		},
 	} = data;
-	console.log(teams);
 
 	return loading ? (
 		<>
+			<Helmet>
+				<title>Loading | Football Stat</title>
+			</Helmet>
 			<Loader />
 		</>
 	) : error ? (
@@ -54,34 +98,34 @@ const TeamInfo = ({ data, error, loading }) => {
 	) : (
 		<>
 			<Container>
+				<Helmet>
+					<title> 팀정보 | {teams[0].name}</title>
+				</Helmet>
 				<MainContainer>
-					<Image src={teams[0].logo} alt="logo" />
-					<StatContainer>
-						<li>
-							<h3>팀명 : </h3>
-							<span>{teams[0].name}</span>
-						</li>
-						<li>
-							<h3>나라 : </h3>
-							<p>{teams[0].country}</p>
-						</li>
-						<li>
-							<h3>설립연도 : </h3>
-							<p>{teams[0].founded}</p>
-						</li>
-						<li>
-							<h3>홈구장 : </h3>
-							<p>{teams[0].venue_name}</p>
-						</li>
-						<li>
-							<h3>구장 도시 : </h3>
-							<p>{teams[0].venue_city}</p>
-						</li>
-						<li>
-							<h3>구장 수용인원 : </h3>
-							<p>{teams[0].venue_capacity}</p>
-						</li>
-					</StatContainer>
+					<ImageContainer>
+						<Image src={teams[0].logo} alt="logo" />
+					</ImageContainer>
+					<InfoContainer>
+						<TeamName>{teams[0].name}</TeamName>
+						<StatContainer>
+							<Stat>
+								<h3>나라</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<p>{teams[0].country}</p>
+							</Stat>
+							<Stat>
+								<h3>설립연도</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<p>{teams[0].founded}년</p>
+							</Stat>
+							<Stat>
+								<h3>구장</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<p>{teams[0].venue_name}</p>
+							</Stat>
+							<Stat>
+								<h3>수용인원</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<p>{teams[0].venue_capacity.toLocaleString()}명</p>
+							</Stat>
+						</StatContainer>
+					</InfoContainer>
 				</MainContainer>
 			</Container>
 		</>
@@ -92,7 +136,7 @@ TeamInfo.propTypes = {
 	teams: PropTypes.object,
 	statistics: PropTypes.object,
 	loading: PropTypes.bool.isRequired,
-	error: PropTypes.string
+	error: PropTypes.string,
 };
 
 export default TeamInfo;
