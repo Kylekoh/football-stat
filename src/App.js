@@ -13,6 +13,7 @@ import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import TeamPage from './pages/TeamPage';
 import Header from 'Components/Header';
+import Footer from 'Components/Footer';
 
 // import components for redux
 import modules from './modules';
@@ -38,6 +39,7 @@ function App() {
 						<Route path="/team/:id" exact component={TeamPage} />
 						<Redirect from="*" to="/" />
 					</Switch>
+					<Footer />
 				</Router>
 				<GlobalStyles />
 			</Provider>
