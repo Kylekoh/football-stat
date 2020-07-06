@@ -1,44 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Home from '../Components/Home';
-import { footballApi } from '../api';
+import styled from 'styled-components';
 
-export default class extends Component {
-	constructor(props) {
-		super(props);
-	}
+const Container = styled.div`
+	display: block;
+`;
 
-	state = {
-		standings: null,
-		error: null,
-		loading: true
-	};
+const HomeContainer = (props) => {
+	return <Container>Home Container</Container>;
+};
 
-	async componentDidMount() {
-		try {
-			// const {
-			// 	data: {
-			// 		api: { standings }
-			// 	}
-			// } = await footballApi.leagueTable();
-			// this.setState({
-			// 	standings: standings[0]
-			// });
-			this.setState({
-				error: '테스트용 에러입니다'
-			});
-		} catch {
-			this.setState({
-				error: '데이터를 찾을 수 없습니다'
-			});
-		} finally {
-			this.setState({
-				loading: false
-			});
-		}
-	}
-
-	render() {
-		const { standings, error, loading } = this.state;
-		return <Home standings={standings} error={error} loading={loading} />;
-	}
-}
+export default HomeContainer;
