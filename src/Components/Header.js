@@ -1,22 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { FaBars } from 'react-icons/fa';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Header = styled.header`
 	width: 100%;
-	height: 100px;
-	padding: 0px 10px;
 	border-bottom: 1px solid #e2e2e2;
-	display: flex;
-	justify-content: center;
+	position: sticky;
+	z-index: 2;
 `;
 
 const Container = styled.div`
 	width: 80%;
-	height: 100%;
+	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	@media (max-width: 768px) {
+		width: 100%;
+		flex-direction: column;
+
+		justify-content: center;
+	}
 `;
 
 const Logo = styled.div`
@@ -35,6 +40,13 @@ const Logo = styled.div`
 
 const List = styled.ul`
 	display: flex;
+
+	@media (max-width: 768px) {
+		width: 100%;
+		align-self: center;
+		flex-direction: column;
+		display: ${(props) => (props.menuToggle ? 'block' : 'none')};
+	}
 `;
 
 const Item = styled.li`
@@ -44,30 +56,79 @@ const Item = styled.li`
 	font-size: 1.1rem;
 	padding: 10px 22px;
 	font-weight: 300;
+
+	&:hover {
+		color: #263443;
+		background-color: sandybrown;
+		cursor: pointer;
+		transition: all 0.2s ease-in-out;
+		-webkit-transition: all 0.2s ease-in-out;
+		border-radius: 4px;
+	}
+
+	@media (max-width: 768px) {
+		padding-left: 0;
+		padding-right: 0;
+		width: 100%;
+		margin: 0;
+	}
 `;
 
-const HeaderComponent = (props) => (
-	<>
+const Menu = styled.a`
+	display: none;
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	right: 32px;
+	top: 40px;
+	cursor: pointer;
+	color: black;
+
+	@media (max-width: 768px) {
+		display: block;
+	}
+`;
+
+const HeaderComponent = (props) => {
+	const [menuToggle, setMenuToggle] = useState(false);
+
+	const handleToggle = () => {
+		setMenuToggle(!menuToggle);
+	};
+
+	return (
 		<Header>
 			<Container>
 				<Logo>
 					<img src={require('../Images/logo1.png')} alt="logo"></img>
 					<span>FOOTBALL_STAT</span>
 				</Logo>
-				<List>
+				<List menuToggle={menuToggle}>
 					<Item>
-						<Link to="/">Home</Link>
+						<Link to="/">스포츠홈</Link>
 					</Item>
 					<Item>
-						<Link to="/league/524">리그순위</Link>
+						<Link to="/league/524">해외축구</Link>
 					</Item>
 					<Item>
-						<Link to="/team/20">팀정보</Link>
+						<Link>축구</Link>
+					</Item>
+					<Item>
+						<Link>해외야구</Link>
+					</Item>
+					<Item>
+						<Link>야구</Link>
+					</Item>
+					<Item>
+						<Link>일반</Link>
 					</Item>
 				</List>
+				<Menu onClick={handleToggle}>
+					<FaBars />
+				</Menu>
 			</Container>
 		</Header>
-	</>
-);
+	);
+};
 
 export default withRouter(HeaderComponent);

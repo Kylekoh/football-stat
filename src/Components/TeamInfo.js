@@ -41,10 +41,10 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled.img`
-	height: 10rem;
-	width: 10rem;
+	height: 9rem;
+	width: 9rem;
 	background-size: cover;
-	border-radius: 180px;
+	/* border-radius: 180px; */
 `;
 
 const InfoContainer = styled.div`
@@ -75,7 +75,6 @@ const Stat = styled.li`
 	padding: 8px 20px 8px 0px;
 
 	span {
-		/* color: #262626; */
 		font-size: 1rem;
 	}
 	p {
