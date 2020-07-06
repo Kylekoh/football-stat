@@ -10,13 +10,16 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: row;
 	width: 70%;
+	max-width: 900px;
 	margin: 0 auto;
 	height: 400px;
 	justify-content: center;
 	align-items: center;
 	margin-top: 50px;
 	border: 0.3px solid gray;
-	box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.8);
+	background: #414247
+		url('http://t1.daumcdn.net/media/sports/teamplayer/bg_teamplayer.png')
+		no-repeat 0 0;
 `;
 
 const MainContainer = styled.div`
@@ -32,6 +35,7 @@ const ImageContainer = styled.div`
 	border: 1px solid gray;
 	border-radius: 150px;
 	display: flex;
+	background-color: white;
 	justify-content: center;
 	align-items: center;
 `;
@@ -54,6 +58,7 @@ const TeamName = styled.h2`
 	font-size: 3rem;
 	font-weight: 900;
 	margin: 0;
+	color: #c5c5c5;
 `;
 
 const StatContainer = styled.ul`
@@ -69,12 +74,13 @@ const Stat = styled.li`
 	align-items: center;
 	padding: 8px 20px 8px 0px;
 
-	h3 {
-		color: gray;
-		font-size: 1.2rem;
+	span {
+		/* color: #262626; */
+		font-size: 1rem;
 	}
 	p {
-		font-size: 1rem;
+		font-size: 0.9rem;
+		color: white;
 	}
 `;
 
@@ -110,19 +116,19 @@ const TeamInfo = ({ data, error, loading }) => {
 						<TeamName>{teams[0].name}</TeamName>
 						<StatContainer>
 							<Stat>
-								<h3>나라</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>나라</span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<p>{teams[0].country}</p>
 							</Stat>
 							<Stat>
-								<h3>설립연도</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>설립연도</span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<p>{teams[0].founded}년</p>
 							</Stat>
 							<Stat>
-								<h3>구장</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>구장</span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<p>{teams[0].venue_name}</p>
 							</Stat>
 							<Stat>
-								<h3>수용인원</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<span>수용인원</span>&nbsp;&nbsp;&nbsp;&nbsp;
 								<p>{teams[0].venue_capacity.toLocaleString()}명</p>
 							</Stat>
 						</StatContainer>
