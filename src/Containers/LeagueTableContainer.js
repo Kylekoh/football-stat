@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import LeagueTable from '../Components/LeagueTable';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getLeagueTables } from '../modules/League';
+import Loader from '../Components/Loader';
 
 const LeagueTableContainer = (props) => {
 	const dispatch = useDispatch();
@@ -12,9 +13,10 @@ const LeagueTableContainer = (props) => {
 
 	const { loading, data, error } = useSelector(
 		(state) => state.League.tables,
-		shallowEqual
+		[]
 	);
 
+	if (loading) return <Loader />;
 	if (!data) return null;
 
 	return <LeagueTable loading={loading} error={error} data={data} />;

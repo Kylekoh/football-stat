@@ -1,19 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import { makeStyles } from '@material-ui/core/styles';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-const Container = styled.div`
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	font-size: 32px;
-	margin-top: 20px;
-`;
+const useStyles = makeStyles((theme) => ({
+	root: {
+		justifyContent: 'center',
+		marginTop: '50px',
+		display: 'flex',
+	},
+}));
 
-export default () => (
-	<Container>
-		<span role="img" aria-label="Loading">
-			🕗
-		</span>
-	</Container>
-);
+export default function CircularIndeterminate() {
+	const classes = useStyles();
+
+	return (
+		<div className={classes.root}>
+			<CircularProgress />
+		</div>
+	);
+}
