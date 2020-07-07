@@ -20,6 +20,9 @@ const Container = styled.div`
 	background: #414247
 		url('http://t1.daumcdn.net/media/sports/teamplayer/bg_teamplayer.png')
 		no-repeat 0 0;
+	@media (max-width: 1000px) {
+		width: 90%;
+	}
 `;
 
 const MainContainer = styled.div`
@@ -28,6 +31,10 @@ const MainContainer = styled.div`
 	width: 80%;
 	align-items: center;
 	justify-content: flex-start;
+	@media (max-width: 1000px) {
+		flex-direction: column;
+		width: 90%;
+	}
 `;
 const ImageContainer = styled.div`
 	width: 200px;
@@ -38,27 +45,41 @@ const ImageContainer = styled.div`
 	background-color: white;
 	justify-content: center;
 	align-items: center;
+	@media (max-width: 1000px) {
+		width: 120px;
+		height: 120px;
+		margin-bottom: 30px;
+	}
 `;
 
 const Image = styled.img`
 	height: 9rem;
 	width: 9rem;
 	background-size: cover;
-	/* border-radius: 180px; */
+	@media (max-width: 1000px) {
+		height: 5rem;
+		width: 5rem;
+	}
 `;
 
 const InfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	margin-left: 50px;
+	@media (max-width: 1000px) {
+		margin-left: 0;
+	}
 `;
 
 const TeamName = styled.h2`
 	margin-left: 12px;
 	font-size: 3rem;
 	font-weight: 900;
-	margin: 0;
+	margin: 0 auto;
 	color: #c5c5c5;
+	@media (max-width: 1000px) {
+		font-size: 1.8rem;
+	}
 `;
 
 const StatContainer = styled.ul`
@@ -66,6 +87,9 @@ const StatContainer = styled.ul`
 	margin-top: 30px;
 	grid-gap: 12px;
 	grid-template-columns: repeat(2, 1fr);
+	@media (max-width: 1000px) {
+		margin-top: 20px;
+	}
 `;
 
 const Stat = styled.li`
@@ -80,6 +104,14 @@ const Stat = styled.li`
 	p {
 		font-size: 0.9rem;
 		color: white;
+	}
+	@media (max-width: 1000px) {
+		span {
+			font-size: 0.8rem;
+		}
+		p {
+			font-size: 0.7rem;
+		}
 	}
 `;
 

@@ -19,7 +19,7 @@ const List = styled.ul`
 	grid-template-columns: repeat(5, 1fr);
 	padding: 0;
 
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
 		grid-template-columns: repeat(1, 1fr);
 		border-left: 1px solid #b4b5c0;
 		border-top: 1px solid #b4b5c0;
@@ -45,7 +45,7 @@ const Item = styled.li`
 	&:nth-child(1) {
 		border-left: 1px solid #b4b5c0;
 	}
-	@media (max-width: 1200px) {
+	@media (max-width: 1300px) {
 		border-right: none;
 		border-top: none;
 		border-bottom: 1px solid #3f4550;
@@ -81,6 +81,8 @@ const TitleContainer = styled.div`
 		font-weight: 600;
 		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 		font-family: 'Do Hyeon', sans-serif;
+		margin-top: 40px;
+		margin-bottom: 40px;
 	}
 	span {
 		padding-left: 60px;

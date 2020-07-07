@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
-import LeagueName from './LeagueName';
 
 const Header = styled.header`
 	width: 100%;
 	border-bottom: 1px solid #e2e2e2;
 	position: sticky;
 	z-index: 2;
+	background-color: #263443;
 `;
 
 const Container = styled.div`
@@ -20,7 +20,6 @@ const Container = styled.div`
 	@media (max-width: 768px) {
 		width: 100%;
 		flex-direction: column;
-
 		justify-content: center;
 	}
 `;
@@ -35,6 +34,7 @@ const Logo = styled.div`
 		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 		font-size: 1.2rem;
 		font-weight: bold;
+		color: white;
 		font-family: 'Do Hyeon', sans-serif;
 	}
 `;
@@ -57,6 +57,7 @@ const Item = styled.li`
 	font-size: 1.1rem;
 	padding: 10px 22px;
 	font-weight: 300;
+	color: white;
 
 	&:hover {
 		color: #263443;
@@ -83,7 +84,7 @@ const Menu = styled.a`
 	right: 32px;
 	top: 40px;
 	cursor: pointer;
-	color: black;
+	color: white;
 
 	@media (max-width: 768px) {
 		display: block;
@@ -130,7 +131,6 @@ const HeaderComponent = (props) => {
 					</Menu>
 				</Container>
 			</Header>
-			<LeagueName />
 		</>
 	);
 };
