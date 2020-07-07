@@ -113,18 +113,10 @@ const HeaderComponent = (props) => {
 						<Item>
 							<Link to="/league/524">해외축구</Link>
 						</Item>
-						<Item>
-							<Link>축구</Link>
-						</Item>
-						<Item>
-							<Link>해외야구</Link>
-						</Item>
-						<Item>
-							<Link>야구</Link>
-						</Item>
-						<Item>
-							<Link>일반</Link>
-						</Item>
+						<Item>축구</Item>
+						<Item>해외야구</Item>
+						<Item>야구</Item>
+						<Item>일반</Item>
 					</List>
 					<Menu onClick={handleToggle}>
 						<FaBars />

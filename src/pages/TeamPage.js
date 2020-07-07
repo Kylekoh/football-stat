@@ -4,18 +4,13 @@ import TeamInfoContainer from '../Containers/TeamInfoContainer';
 const Teampage = (props) => {
 	const {
 		match: {
-			params: { id }
-		}
+			params: { id },
+		},
 	} = props;
 
-	const {
-		location: {
-			state: { leagueId }
-		}
-	} = props;
 	return (
 		<div>
-			<TeamInfoContainer id={id} leagueId={leagueId} />
+			<TeamInfoContainer id={id} />
 		</div>
 	);
 };

@@ -70,7 +70,7 @@ const CustomTableCell = withStyles((theme) => ({
 	},
 }))(TableCell);
 
-const LeagueTable = ({ data, error, loading, leagueId }) => {
+const LeagueTable = ({ data, error, loading }) => {
 	const {
 		data: {
 			api: { standings },
@@ -166,7 +166,6 @@ const LeagueTable = ({ data, error, loading, leagueId }) => {
 										<Link
 											to={{
 												pathname: `/team/${standing.team_id}`,
-												state: { leagueId: `${leagueId}` },
 											}}
 										>
 											{standing.teamName}

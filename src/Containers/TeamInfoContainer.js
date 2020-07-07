@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import TeamInfo from '../Components/TeamInfo';
 import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import { getTeamInfo } from '../modules/Team';
 
 const TeamInfoContainer = (props) => {
-	const league_id = parseInt(props.leagueId);
 	const team_id = parseInt(props.id);
 	const dispatch = useDispatch();
 
@@ -17,7 +16,6 @@ const TeamInfoContainer = (props) => {
 		(state) => state.Team.infos,
 		shallowEqual
 	);
-	// useSelector((state) => console.log(state));
 
 	if (!data) return null;
 
