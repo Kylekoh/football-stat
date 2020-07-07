@@ -108,7 +108,7 @@ const HeaderComponent = (props) => {
 					</Logo>
 					<List menuToggle={menuToggle}>
 						<Item>
-							<Link to="/">스포츠홈</Link>
+							<Link to="/league/524">스포츠홈</Link>
 						</Item>
 						<Item>
 							<Link to="/league/524">해외축구</Link>

@@ -9,7 +9,6 @@ import {
 	Switch,
 } from 'react-router-dom';
 
-import HomePage from './pages/HomePage';
 import LeaguePage from './pages/LeaguePage';
 import TeamPage from './pages/TeamPage';
 import Header from 'Components/Header';
@@ -34,7 +33,7 @@ function App() {
 				<Router>
 					<Header />
 					<Switch>
-						<Route path="/" exact component={HomePage} />
+						<Route path="/" exact component={LeaguePage} />
 						<Route path="/league/:id" exact component={LeaguePage} />
 						<Route path="/team/:id" exact component={TeamPage} />
 						<Redirect from="*" to="/" />

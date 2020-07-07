@@ -71,7 +71,6 @@ const CustomTableCell = withStyles((theme) => ({
 }))(TableCell);
 
 const LeagueTable = ({ data, error, loading }) => {
-	console.log(loading);
 	const {
 		data: {
 			api: { standings },

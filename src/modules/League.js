@@ -1,7 +1,6 @@
 // 덕스 패턴으로 작성
 import { footballApi } from '../api';
 
-// console.log(footballApi);
 // 리그 순위 조회하기
 const GET_LEAGUETABLES = 'GET_LEAGUETABLES'; // 요청 시작
 const GET_LEAGUETABLES_SUCCESS = 'GET_LEAGUETABLES_SUCCESS'; // 요청 성공
@@ -21,8 +20,8 @@ const initialState = {
 	tables: {
 		loading: false,
 		data: null,
-		error: null
-	}
+		error: null,
+	},
 };
 
 export default function posts(state = initialState, action) {
@@ -33,8 +32,8 @@ export default function posts(state = initialState, action) {
 				tables: {
 					loading: true,
 					data: null,
-					error: null
-				}
+					error: null,
+				},
 			};
 		case GET_LEAGUETABLES_SUCCESS:
 			return {
@@ -42,8 +41,8 @@ export default function posts(state = initialState, action) {
 				tables: {
 					loading: false,
 					data: action.tables,
-					error: null
-				}
+					error: null,
+				},
 			};
 		case GET_LEAGUETABLES_ERROR:
 			return {
@@ -51,8 +50,8 @@ export default function posts(state = initialState, action) {
 				tables: {
 					loading: false,
 					data: null,
-					error: action.error
-				}
+					error: action.error,
+				},
 			};
 		default:
 			return state;

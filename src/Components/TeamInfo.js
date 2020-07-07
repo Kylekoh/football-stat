@@ -100,6 +100,7 @@ const Stat = styled.li`
 
 	span {
 		font-size: 1rem;
+		white-space: nowrap;
 	}
 	p {
 		font-size: 0.9rem;
