@@ -75,12 +75,12 @@ const TitleContainer = styled.div`
 	margin: 0 auto;
 	justify-content: center;
 	align-items: center;
+	@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+	font-family: 'Do Hyeon', sans-serif;
 
 	h3 {
 		font-size: 3.5rem;
 		font-weight: 600;
-		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-		font-family: 'Do Hyeon', sans-serif;
 		margin-top: 40px;
 		margin-bottom: 40px;
 	}
@@ -89,8 +89,6 @@ const TitleContainer = styled.div`
 		align-self: flex-start;
 		font-size: 1.3rem;
 		font-weight: 400;
-		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
-		font-family: 'Do Hyeon', sans-serif;
 	}
 	@media (max-width: 768px) {
 		h3 {

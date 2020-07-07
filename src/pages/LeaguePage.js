@@ -4,13 +4,13 @@ import LeagueTableContainer from '../Containers/LeagueTableContainer';
 const LeaguePage = (props) => {
 	const {
 		match: {
-			params: { id }
-		}
+			params: { id = 524 },
+		},
 	} = props;
 
 	return (
 		<div>
-			<LeagueTableContainer id={id} />
+			<LeagueTableContainer id={parseInt(id, 10)} />
 		</div>
 	);
 };
