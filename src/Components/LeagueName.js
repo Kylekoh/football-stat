@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const Container = styled.div`
 	display: flex;
 	justify-content: center;
-	margin-top: 30px;
-	margin-bottom: 30px;
+	width: 80%;
+	margin: 30px auto;
 `;
 
 const List = styled.ul`
@@ -18,6 +18,13 @@ const List = styled.ul`
 	flex-direction: row;
 	grid-template-columns: repeat(5, 1fr);
 	padding: 0;
+
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(1, 1fr);
+		border-left: 1px solid #b4b5c0;
+		border-top: 1px solid #b4b5c0;
+		border-right: 1px solid #b4b5c0;
+	}
 `;
 
 const Item = styled.li`
@@ -38,6 +45,16 @@ const Item = styled.li`
 	&:nth-child(1) {
 		border-left: 1px solid #b4b5c0;
 	}
+	@media (max-width: 1200px) {
+		border-right: none;
+		border-top: none;
+		border-bottom: 1px solid #3f4550;
+		font-size: 14px;
+		padding: 10px 15px;
+		&:nth-child(1) {
+			border-left: none;
+		}
+	}
 `;
 
 const SLink = styled(Link)`
@@ -50,6 +67,38 @@ const Image = styled.img`
 	width: 23px;
 	height: 23px;
 	margin-right: 10px;
+`;
+const TitleContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	width: 80%;
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+
+	h3 {
+		font-size: 3.5rem;
+		font-weight: 600;
+		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		font-family: 'Do Hyeon', sans-serif;
+	}
+	span {
+		padding-left: 60px;
+		align-self: flex-start;
+		font-size: 1.3rem;
+		font-weight: 400;
+		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		font-family: 'Do Hyeon', sans-serif;
+	}
+	@media (max-width: 768px) {
+		h3 {
+			font-size: 2.5rem;
+		}
+		span {
+			padding-left: 0;
+			font-size: 1.1rem;
+		}
+	}
 `;
 
 const LeagueName = (props) => (
@@ -103,6 +152,10 @@ const LeagueName = (props) => (
 				</Item>
 			</List>
 		</Container>
+		<TitleContainer>
+			<h3>2019-20</h3>
+			<span>종합순위</span>
+		</TitleContainer>
 	</>
 );
 

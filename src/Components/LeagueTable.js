@@ -19,12 +19,12 @@ const useStyles = makeStyles({
 	tableContainer: {
 		display: 'flex',
 		justifyContent: 'center',
-		marginTop: '30px',
+		marginTop: '10px',
 		overflow: 'hidden',
 		marginBottom: '100px',
 	},
 	table: {
-		maxWidth: 1200,
+		maxWidth: '1200px',
 		fontSize: '20px',
 	},
 	tableHeadRow: {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBars } from 'react-icons/fa';
 import { Link, withRouter } from 'react-router-dom';
 import styled from 'styled-components';
+import LeagueName from './LeagueName';
 
 const Header = styled.header`
 	width: 100%;
@@ -97,37 +98,40 @@ const HeaderComponent = (props) => {
 	};
 
 	return (
-		<Header>
-			<Container>
-				<Logo>
-					<img src={require('../Images/logo1.png')} alt="logo"></img>
-					<span>FOOTBALL_STAT</span>
-				</Logo>
-				<List menuToggle={menuToggle}>
-					<Item>
-						<Link to="/">스포츠홈</Link>
-					</Item>
-					<Item>
-						<Link to="/league/524">해외축구</Link>
-					</Item>
-					<Item>
-						<Link>축구</Link>
-					</Item>
-					<Item>
-						<Link>해외야구</Link>
-					</Item>
-					<Item>
-						<Link>야구</Link>
-					</Item>
-					<Item>
-						<Link>일반</Link>
-					</Item>
-				</List>
-				<Menu onClick={handleToggle}>
-					<FaBars />
-				</Menu>
-			</Container>
-		</Header>
+		<>
+			<Header>
+				<Container>
+					<Logo>
+						<img src={require('../Images/logo1.png')} alt="logo"></img>
+						<span>FOOTBALL_STAT</span>
+					</Logo>
+					<List menuToggle={menuToggle}>
+						<Item>
+							<Link to="/">스포츠홈</Link>
+						</Item>
+						<Item>
+							<Link to="/league/524">해외축구</Link>
+						</Item>
+						<Item>
+							<Link>축구</Link>
+						</Item>
+						<Item>
+							<Link>해외야구</Link>
+						</Item>
+						<Item>
+							<Link>야구</Link>
+						</Item>
+						<Item>
+							<Link>일반</Link>
+						</Item>
+					</List>
+					<Menu onClick={handleToggle}>
+						<FaBars />
+					</Menu>
+				</Container>
+			</Header>
+			<LeagueName />
+		</>
 	);
 };
 
