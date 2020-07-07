@@ -10,7 +10,6 @@ export const getTeamInfo = (id) => async (dispatch) => {
 	dispatch({ type: GET_TEAMINFO }); // 요청 시작
 	try {
 		const infos = await footballApi.teamInfo(id);
-		console.log(infos);
 		dispatch({ type: GET_TEAMINFO_SUCCESS, infos });
 	} catch (e) {
 		dispatch({ type: GET_TEAMINFO_ERROR, error: e });
@@ -21,8 +20,8 @@ const initialState = {
 	infos: {
 		loading: false,
 		data: null,
-		error: null
-	}
+		error: null,
+	},
 };
 
 export default function teamInfo(state = initialState, action) {
@@ -33,8 +32,8 @@ export default function teamInfo(state = initialState, action) {
 				infos: {
 					loading: true,
 					data: null,
-					error: null
-				}
+					error: null,
+				},
 			};
 		case GET_TEAMINFO_SUCCESS:
 			return {
@@ -42,8 +41,8 @@ export default function teamInfo(state = initialState, action) {
 				infos: {
 					loading: false,
 					data: action.infos,
-					error: null
-				}
+					error: null,
+				},
 			};
 		case GET_TEAMINFO_ERROR:
 			return {
@@ -51,8 +50,8 @@ export default function teamInfo(state = initialState, action) {
 				infos: {
 					loading: false,
 					data: null,
-					error: action.error
-				}
+					error: action.error,
+				},
 			};
 		default:
 			return state;

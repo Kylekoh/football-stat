@@ -10,7 +10,7 @@ const Teampage = (props) => {
 
 	return (
 		<div>
-			<TeamInfoContainer id={id} />
+			<TeamInfoContainer id={parseInt(id, 10)} />
 		</div>
 	);
 };

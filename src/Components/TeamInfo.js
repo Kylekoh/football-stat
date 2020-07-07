@@ -99,19 +99,21 @@ const Stat = styled.li`
 	padding: 8px 20px 8px 0px;
 
 	span {
-		font-size: 1rem;
+		font-size: 1.1rem;
 		white-space: nowrap;
+		font-weight: 600;
 	}
 	p {
 		font-size: 0.9rem;
 		color: white;
+		font-weight: 600;
 	}
 	@media (max-width: 1000px) {
 		span {
-			font-size: 0.8rem;
+			font-size: 0.9rem;
 		}
 		p {
-			font-size: 0.7rem;
+			font-size: 0.8rem;
 		}
 	}
 `;

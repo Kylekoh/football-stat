@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Loader from './Loader';
@@ -163,11 +163,7 @@ const LeagueTable = ({ data, error, loading }) => {
 										/>
 									</CustomTableCell>
 									<CustomTableCell className={classes.teamContainer}>
-										<Link
-											to={{
-												pathname: `/team/${standing.team_id}`,
-											}}
-										>
+										<Link to={`/team/${standing.team_id}`}>
 											{standing.teamName}
 										</Link>
 									</CustomTableCell>
@@ -211,4 +207,4 @@ LeagueTable.propTypes = {
 	error: PropTypes.string,
 };
 
-export default LeagueTable;
+export default withRouter(LeagueTable);

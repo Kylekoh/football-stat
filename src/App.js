@@ -29,19 +29,19 @@ const store = createStore(
 function App() {
 	return (
 		<>
-			<Provider store={store}>
-				<Router>
+			<Router>
+				<Provider store={store}>
 					<Header />
 					<Switch>
 						<Route path="/" exact component={LeaguePage} />
-						<Route path="/league/:id" exact component={LeaguePage} />
-						<Route path="/team/:id" exact component={TeamPage} />
+						<Route path="/league/:id" component={LeaguePage} />
+						<Route path="/team/:id" component={TeamPage} />
 						<Redirect from="*" to="/" />
 					</Switch>
 					<Footer />
-				</Router>
-				<GlobalStyles />
-			</Provider>
+					<GlobalStyles />
+				</Provider>
+			</Router>
 		</>
 	);
 }
