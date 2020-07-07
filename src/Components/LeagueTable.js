@@ -17,15 +17,14 @@ import TableRow from '@material-ui/core/TableRow';
 
 const useStyles = makeStyles({
 	tableContainer: {
-		display: 'flex',
-		justifyContent: 'center',
-		marginTop: '10px',
-		overflow: 'hidden',
-		marginBottom: '100px',
+		margin: '10px auto 100px auto',
+		overflowX: 'auto',
+		overflowY: 'hidden',
+		width: '90%',
+		maxWidth: '1200px',
 	},
 	table: {
-		maxWidth: '1200px',
-		fontSize: '20px',
+		minWidth: '900px',
 	},
 	tableHeadRow: {
 		backgroundColor: '#F7F7F7',
@@ -34,6 +33,11 @@ const useStyles = makeStyles({
 	tableHead: {
 		fontWeight: '800',
 		fontSize: '16px',
+		minWidth: '45px',
+		'@media (max-width:900px)': {
+			fontSize: '12px',
+			padding: '12px 12px',
+		},
 	},
 	rank: {
 		fontWeight: 800,
@@ -60,6 +64,9 @@ const CustomTableCell = withStyles((theme) => ({
 	},
 	body: {
 		fontSize: '17px',
+		'@media (max-width:900px)': {
+			fontSize: '14px',
+		},
 	},
 }))(TableCell);
 
