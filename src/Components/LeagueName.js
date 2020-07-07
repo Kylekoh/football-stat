@@ -83,11 +83,12 @@ const TitleContainer = styled.div`
 		font-weight: 600;
 		margin-top: 40px;
 		margin-bottom: 40px;
+		display: flex;
+		align-items: center;
 	}
 	span {
-		padding-left: 60px;
-		align-self: flex-start;
-		font-size: 1.3rem;
+		padding-left: 20px;
+		font-size: 1.5rem;
 		font-weight: 400;
 	}
 	@media (max-width: 768px) {
@@ -153,8 +154,9 @@ const LeagueName = (props) => (
 			</List>
 		</Container>
 		<TitleContainer>
-			<h3>2019-20</h3>
-			<span>종합순위</span>
+			<h3>
+				2019-20<span>종합순위</span>
+			</h3>
 		</TitleContainer>
 	</>
 );
