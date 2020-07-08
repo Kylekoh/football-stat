@@ -14,7 +14,6 @@ const List = styled.ul`
 	min-height: 60px;
 	max-width: 1150px;
 	display: grid;
-	background-color: #f7f7f9;
 	flex-direction: row;
 	grid-template-columns: repeat(5, 1fr);
 	padding: 0;
@@ -37,7 +36,10 @@ const Item = styled.li`
 	font-size: 19px;
 	border-top: 2px solid #3f4550;
 	border-right: 1px solid #b4b5c0;
-	border-bottom: 1px solid #b4b5c0;
+	border-bottom: ${(props) =>
+		props.current ? '5px solid #b4b5c0' : '1px solid #b4b5c0'};
+	background-color: ${(props) => (props.current ? 'white' : '#f7f7f9')};
+	color: ${(props) => (props.current ? '#3F75DA' : '#3F4044')};
 	&:hover {
 		background-color: white;
 		cursor: pointer;
@@ -102,11 +104,11 @@ const TitleContainer = styled.div`
 	}
 `;
 
-const LeagueName = (props) => (
+const LeagueName = ({ location: { pathname } }) => (
 	<>
 		<Container>
 			<List>
-				<Item>
+				<Item current={pathname === '/league/524'}>
 					<SLink to="/league/524">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/epl_on.png"
@@ -115,7 +117,7 @@ const LeagueName = (props) => (
 						<span>프리미어리그</span>
 					</SLink>
 				</Item>
-				<Item>
+				<Item current={pathname === '/league/775'}>
 					<SLink to="/league/775">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/primera_on.png"
@@ -124,7 +126,7 @@ const LeagueName = (props) => (
 						<span>라리가</span>
 					</SLink>
 				</Item>
-				<Item>
+				<Item current={pathname === '/league/754'}>
 					<SLink to="/league/754">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/bundesliga_on.png"
@@ -133,7 +135,7 @@ const LeagueName = (props) => (
 						<span>분데스리가</span>
 					</SLink>
 				</Item>
-				<Item>
+				<Item current={pathname === '/league/891'}>
 					<SLink to="/league/891">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/seria_on.png"
@@ -142,7 +144,7 @@ const LeagueName = (props) => (
 						<span>세리에A</span>
 					</SLink>
 				</Item>
-				<Item>
+				<Item current={pathname === '/league/525'}>
 					<SLink to="/league/525">
 						<Image
 							src="https://imgsports.pstatic.net/images/2016/pc/common/league/ligue1_on.png"

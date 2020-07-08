@@ -5,6 +5,7 @@ import Helmet from 'react-helmet';
 import Loader from './Loader';
 import Message from './Message';
 import LeagueName from './LeagueName';
+import { FaChevronRight } from 'react-icons/fa';
 
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -164,7 +165,7 @@ const LeagueTable = ({ data, error, loading }) => {
 									</CustomTableCell>
 									<CustomTableCell className={classes.teamContainer}>
 										<Link to={`/team/${standing.team_id}`}>
-											{standing.teamName}
+											{standing.teamName} {'>'}
 										</Link>
 									</CustomTableCell>
 									<CustomTableCell align="center">

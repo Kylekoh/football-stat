@@ -32,10 +32,10 @@ const Logo = styled.div`
 	}
 	span {
 		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+		font-family: 'Do Hyeon', sans-serif;
 		font-size: 1.2rem;
 		font-weight: bold;
 		color: white;
-		font-family: 'Do Hyeon', sans-serif;
 	}
 `;
 
@@ -113,10 +113,6 @@ const HeaderComponent = (props) => {
 						<Item>
 							<Link to="/league/524">해외축구</Link>
 						</Item>
-						<Item>축구</Item>
-						<Item>해외야구</Item>
-						<Item>야구</Item>
-						<Item>일반</Item>
 					</List>
 					<Menu onClick={handleToggle}>
 						<FaBars />
