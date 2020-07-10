@@ -16,6 +16,13 @@ git add .
 git commit -m "first commit"
 ```
 
+<pre>
+<code>
+npm install
+git add .
+</code>
+</pre>
+
 - [ ] Home
 - [ ] League Table
 - [ ] Team Detail
