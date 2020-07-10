@@ -1,14 +1,15 @@
-#Football-stat
+# Football-stat
 
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-  - [Built With](#built-with)
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [Contact](#contact)
+- [Football-stat](#football-stat)
+  - [Table of Contents](#table-of-contents)
+  - [About The Project](#about-the-project)
+    - [Built With](#built-with)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contact](#contact)
 
 <br/>
 <br/>
@@ -18,12 +19,12 @@
 <img src='./src/Images/logo1.png' width="300" height="300" margin="0 auto">
 <br/>
 
-제공 데이터
+__제공 데이터__
 - 유럽 5대리그(프리미어리그, 라리가, 분데스리가, 세리에A, 리그1) 리그별 순위를 제공합니다
 - 각 팀별 정보(해당 국가, 설립 연도, 구장 이름, 구장 수용 인원)를 제공합니다
 - 축구 관련 데이터를 전문으로 제공하는 API Football의 API 사용하였습니다.
 
-기술 스택
+__기술 스택__
 - 데이터 상태 관리를 위해 Redux, React Hooks를 사용하였습니다.
 - Redux 는 DUCKS 패턴으로 작성되었습니다.
 - Redux, Redux-Thunk를 활용하여 API 호출 기능을 개발하였습니다. 
@@ -85,10 +86,10 @@ yarn start
 - 리그 테이블(5대 리그별 팀 순위)
 <img src='./src/Images/stat_table.png' width="600" height="400" margin="0 auto">
 <br/>
+
 - 팀 정보(소속 나라, 설립연도, 구장 이름, 수용 인원)
 <img src='./src/Images/stat_team.png' width="600" height="400" margin="0 auto">
 
-<br/>
 <br/>
 
 ## Contact
