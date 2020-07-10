@@ -5,13 +5,15 @@
 - 목차
   _ 목차입니다
   _ 두번째 목차 \* 세번째 목차
-  Footbale stat site showing league and team info.
+
 
 ## Screens
 
 <hr width="50" size="20"/>
 ```
 npm install 
+git add .
+git commit -m "first commit"
 ```
 
 - [ ] Home
