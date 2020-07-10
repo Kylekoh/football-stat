@@ -5,20 +5,20 @@ import styled from 'styled-components';
 const Container = styled.div`
 	display: flex;
 	justify-content: center;
-	width: 80%;
+	width: 75%;
 	margin: 30px auto;
 `;
 
 const List = styled.ul`
 	width: 100%;
-	min-height: 60px;
+	min-height: 50px;
 	max-width: 1150px;
 	display: grid;
 	flex-direction: row;
 	grid-template-columns: repeat(5, 1fr);
 	padding: 0;
 
-	@media (max-width: 900px) {
+	@media (max-width: 1000px) {
 		grid-template-columns: repeat(1, 1fr);
 		border-left: 1px solid #b4b5c0;
 		border-top: 1px solid #b4b5c0;
@@ -30,10 +30,10 @@ const Item = styled.li`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 25px 30px;
+	padding: 18px 15px;
 	text-align: center;
 	vertical-align: middle;
-	font-size: 19px;
+	font-size: 18px;
 	border-top: 2px solid #3f4550;
 	border-right: 1px solid #b4b5c0;
 	border-bottom: ${(props) =>
@@ -47,12 +47,12 @@ const Item = styled.li`
 	&:nth-child(1) {
 		border-left: 1px solid #b4b5c0;
 	}
-	@media (max-width: 1300px) {
+	@media (max-width: 1000px) {
 		border-right: none;
 		border-top: none;
 		border-bottom: 1px solid #3f4550;
 		font-size: 14px;
-		padding: 10px 15px;
+		padding: 13px 15px;
 		&:nth-child(1) {
 			border-left: none;
 		}
@@ -63,11 +63,15 @@ const SLink = styled(Link)`
 	display: flex;
 	align-items: center;
 	font-weight: 600;
+	font-size: 15px;
+	@media (max-width: 1000px) {
+		font-size: 13px;
+	}
 `;
 
 const Image = styled.img`
-	width: 23px;
-	height: 23px;
+	width: 18px;
+	height: 18px;
 	margin-right: 10px;
 `;
 const TitleContainer = styled.div`
@@ -81,7 +85,7 @@ const TitleContainer = styled.div`
 	font-family: 'Do Hyeon', sans-serif;
 
 	h3 {
-		font-size: 3.5rem;
+		font-size: 3rem;
 		font-weight: 600;
 		margin-top: 40px;
 		margin-bottom: 40px;
@@ -90,7 +94,7 @@ const TitleContainer = styled.div`
 	}
 	span {
 		padding-left: 20px;
-		font-size: 1.5rem;
+		font-size: 1.3rem;
 		font-weight: 400;
 	}
 	@media (max-width: 768px) {
@@ -98,7 +102,7 @@ const TitleContainer = styled.div`
 			font-size: 2.5rem;
 		}
 		span {
-			padding-left: 0;
+			padding-left: 12px;
 			font-size: 1.1rem;
 		}
 	}

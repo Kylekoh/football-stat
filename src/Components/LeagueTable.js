@@ -18,10 +18,10 @@ import TableRow from '@material-ui/core/TableRow';
 
 const useStyles = makeStyles({
 	tableContainer: {
-		margin: '10px auto 100px auto',
+		margin: '30px auto 100px auto',
 		overflowX: 'auto',
 		overflowY: 'hidden',
-		width: '90%',
+		width: '80%',
 		maxWidth: '1200px',
 	},
 	table: {
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
 	},
 	tableHead: {
 		fontWeight: '800',
-		fontSize: '16px',
+		fontSize: '14px',
 		minWidth: '45px',
 		'@media (max-width:900px)': {
 			fontSize: '12px',
@@ -42,15 +42,19 @@ const useStyles = makeStyles({
 	},
 	rank: {
 		fontWeight: 800,
-		fontSize: '16px',
+		fontSize: '14px',
 	},
 	logoContainer: {
 		paddingRight: '0px',
 	},
 	logo: {
 		verticalAlign: 'middle',
-		width: '35px',
-		height: '35px',
+		width: '30px',
+		height: '30px',
+		'@media (max-width:900px)': {
+			width: '24px',
+			height: '24px',
+		},
 	},
 	points: {
 		backgroundColor: 'rgba(64,134,255,.06)',
@@ -64,9 +68,15 @@ const CustomTableCell = withStyles((theme) => ({
 		color: 'red',
 	},
 	body: {
-		fontSize: '17px',
+		fontSize: '14px',
 		'@media (max-width:900px)': {
-			fontSize: '14px',
+			fontSize: '12px',
+		},
+	},
+	root: {
+		padding: '12px',
+		'@media (max-width:900px)': {
+			padding: '8px',
 		},
 	},
 }))(TableCell);

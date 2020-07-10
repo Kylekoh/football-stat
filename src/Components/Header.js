@@ -28,12 +28,12 @@ const Logo = styled.div`
 	display: flex;
 	align-items: center;
 	img {
-		width: 80px;
+		width: 65px;
 	}
 	span {
 		@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
 		font-family: 'Do Hyeon', sans-serif;
-		font-size: 1.2rem;
+		font-size: 1rem;
 		font-weight: bold;
 		color: white;
 	}
@@ -82,7 +82,7 @@ const Menu = styled.a`
 	font-size: 20px;
 	position: absolute;
 	right: 32px;
-	top: 40px;
+	top: 32px;
 	cursor: pointer;
 	color: white;
 
