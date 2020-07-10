@@ -10,18 +10,10 @@
 - [Usage](#usage)
 - [Contact](#contact)
 
-<<<<<<< HEAD
 <br/>
 <br/>
-=======
-- 목차
-  _ 목차입니다
-  _ 두번째 목차 \* 세번째 목차
-
->>>>>>> c16ec58fe6dae9f87cbfe8887b3d08027e6d31cf
 
 
-<<<<<<< HEAD
 ## About The Project
 <img src='./src/Images/logo1.png' width="300" height="300" margin="0 auto">
 <br/>
@@ -30,26 +22,6 @@
 - 유럽 5대리그(프리미어리그, 라리가, 분데스리가, 세리에A, 리그1) 리그별 순위를 제공합니다
 - 각 팀별 정보(해당 국가, 설립 연도, 구장 이름, 구장 수용 인원)를 제공합니다
 - 축구 관련 데이터를 전문으로 제공하는 API Football의 API 사용하였습니다.
-=======
-<hr width="50" size="20"/>
-```
-npm install 
-git add .
-git commit -m "first commit"
-```
-
-<pre>
-<code>
-npm install
-git add .
-</code>
-</pre>
-
-- [ ] Home
-- [ ] League Table
-- [ ] Team Detail
->>>>>>> c16ec58fe6dae9f87cbfe8887b3d08027e6d31cf
-
 
 기술 스택
 - 데이터 상태 관리를 위해 Redux, React Hooks를 사용하였습니다.
