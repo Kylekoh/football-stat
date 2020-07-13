@@ -25,7 +25,7 @@ const FooterContainer = styled.div`
 
 const LinkContainer = styled.div`
 	display: flex;
-	width: 70%;
+	width: 65%;
 	flex-direction: column;
 	justify-content: center;
 	padding-left: 40px;
@@ -80,13 +80,16 @@ const AdLink = styled.ul`
 `;
 
 const CopyrightContainer = styled.div`
-	width: 30%;
+	width: 35%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	padding-right: 40px;
 	color: #656565;
+	position: relative;
 	span {
+		position: absolute;
+		top: -45px;
 		line-height: 1.5rem;
 		margin-bottom: 15px;
 	}
@@ -133,9 +136,10 @@ const FooterComponent = () => (
 			<CopyrightContainer>
 				<span>
 					위 내용에 대한 저작권 및 법적 책임은 자료제공사 또는 글쓴이에 있으며,
+					<br />
 					Football-Stat의 입장과 다를 수 있습니다.
+					<p>Copyright ⓒ Football-stat Corp. All rights reserved.</p>
 				</span>
-				<p>Copyright ⓒ Football-stat Corp. All rights reserved.</p>
 			</CopyrightContainer>
 		</FooterContainer>
 	</Footer>
