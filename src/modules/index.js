@@ -4,5 +4,5 @@ import Team from './Team';
 
 export default combineReducers({
 	League,
-	Team
+	Team,
 });

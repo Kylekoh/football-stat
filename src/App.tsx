@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalStyles from 'Components/GlobalStyles';
+import GlobalStyles from './Components/GlobalStyles';
 
 // import components for react-route
 import {
@@ -11,8 +11,8 @@ import {
 
 import LeaguePage from './pages/LeaguePage';
 import TeamPage from './pages/TeamPage';
-import Header from 'Components/Header';
-import Footer from 'Components/Footer';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 // import components for redux
 import modules from './modules';
