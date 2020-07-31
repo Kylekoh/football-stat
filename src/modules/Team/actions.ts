@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions';
-import { TeamInfo } from '../../api';
+import { TeamInfos } from '../../api';
 import { AxiosError } from 'axios';
 
 export const GET_TEAMINFO = 'GET_TEAMINFO'; // 요청 시작
@@ -10,4 +10,4 @@ export const getTeamInfoAsync = createAsyncAction(
 	GET_TEAMINFO,
 	GET_TEAMINFO_SUCCESS,
 	GET_TEAMINFO_ERROR
-)<undefined, TeamInfo, AxiosError>();
+)<undefined, TeamInfos, AxiosError>();

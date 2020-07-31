@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import League from './League_past';
+import League from './League';
 import Team from './Team';
 
 const rootReducer = combineReducers({

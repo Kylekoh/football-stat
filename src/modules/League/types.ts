@@ -1,13 +1,13 @@
 import * as actions from './actions';
 import { ActionType } from 'typesafe-actions';
-import { LeagueTable } from '../../api';
+import { LeagueTables } from '../../api';
 
 export type LeagueAction = ActionType<typeof actions>;
 
 export type LeagueState = {
-	infos: {
+	tables: {
 		loading: boolean;
-		data: LeagueTable | null;
+		data: LeagueTables | null;
 		error: Error | null;
 	};
 };

@@ -1,5 +1,5 @@
 import { createAsyncAction } from 'typesafe-actions';
-import { LeagueTable } from '../../api';
+import { LeagueTables } from '../../api';
 import { AxiosError } from 'axios';
 
 // 리그 순위 조회하기
@@ -11,4 +11,4 @@ export const getLeagueInfoAsync = createAsyncAction(
 	GET_LEAGUETABLES,
 	GET_LEAGUETABLES_SUCCESS,
 	GET_LEAGUETABLES_ERROR
-)<undefined, LeagueTable, AxiosError>();
+)<undefined, LeagueTables, AxiosError>();

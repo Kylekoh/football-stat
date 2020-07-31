@@ -11,9 +11,9 @@ const api = axios.create({
 export const footballApi = {
 	// 리그 순위 테이블
 	leagueTable: (league_id: number) =>
-		api.get<LeagueTable>(`/leagueTable/${league_id}`),
+		api.get<LeagueTables>(`/leagueTable/${league_id}`),
 	// 팀 기본 정보(name, country, venue_name...)
-	teamInfo: (team_id: number) => api.get<TeamInfo>(`/teams/team/${team_id}`),
+	teamInfo: (team_id: number) => api.get<TeamInfos>(`/teams/team/${team_id}`),
 	// // 팀 최근 성적
 	// teamRecord: (league_id, team_id) =>
 	// 	api.get(`/statistics/${league_id}/${team_id}`),
@@ -25,7 +25,16 @@ export const footballApi = {
 };
 
 // leagueTable interface
-export interface LeagueTable {
+export interface LeagueTables {
+	config: any;
+	data: LeagueTablesProps;
+	headers: any;
+	requset: any;
+	status: number;
+	statusText: string;
+}
+
+export interface LeagueTablesProps {
 	api: LeagueAPI;
 }
 
@@ -61,7 +70,16 @@ export interface All {
 }
 
 // teamInfo interface
-export interface TeamInfo {
+export interface TeamInfos {
+	config: any;
+	data: TeamInfoProps;
+	headers: any;
+	requset: any;
+	status: number;
+	statusText: string;
+}
+
+export interface TeamInfoProps {
 	api: TeamAPI;
 }
 

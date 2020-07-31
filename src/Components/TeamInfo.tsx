@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-import Loader from './Loader';
-import Message from './Message';
+import { TeamInfos } from '../api';
 
 const Container = styled.div`
 	font-size: 12px;
@@ -117,31 +116,18 @@ const Stat = styled.li`
 	}
 `;
 
-interface Props {
-	data: object | string;
-	error: string;
-	loading: boolean;
+interface TeamInfoProps {
+	data: TeamInfos;
 }
 
-const TeamInfo: React.FunctionComponent<Props> = ({ data, error, loading }) => {
+const TeamInfo = ({ data }: TeamInfoProps) => {
 	const {
 		data: {
 			api: { teams },
 		},
 	} = data;
 
-	return loading ? (
-		<>
-			<Helmet>
-				<title>Loading | Football Stat</title>
-			</Helmet>
-			<Loader />
-		</>
-	) : error ? (
-		<>
-			<Message text={error} />
-		</>
-	) : (
+	return (
 		<>
 			<Container>
 				<Helmet>

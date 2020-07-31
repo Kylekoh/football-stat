@@ -12,7 +12,7 @@ const Text = styled.span`
 `;
 
 interface Props {
-	text: string;
+	text: Error | string;
 	color?: string;
 }
 

@@ -11,6 +11,7 @@ export const getLeagueTables = (
 	dispatch(request());
 	try {
 		const tables: any = await footballApi.leagueTable(id);
+		console.log(tables);
 		dispatch(success(tables));
 	} catch (e) {
 		dispatch(failure(e));

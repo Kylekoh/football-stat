@@ -1,11 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import Loader from './Loader';
-import Message from './Message';
 import LeagueName from './LeagueName';
-import { FaChevronRight } from 'react-icons/fa';
+import { Standing } from '../api';
 
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
@@ -32,7 +29,7 @@ const useStyles = makeStyles({
 		borderTop: '1px solid #494949',
 	},
 	tableHead: {
-		fontWeight: '800',
+		fontWeight: 800,
 		fontSize: '14px',
 		minWidth: '45px',
 		'@media (max-width:900px)': {
@@ -81,35 +78,13 @@ const CustomTableCell = withStyles((theme) => ({
 	},
 }))(TableCell);
 
-interface Props {
-	data: any;
-	error: string;
-	loading: boolean;
+export interface Props {
+	standings: Array<Standing[]>;
 }
 
-const LeagueTable: React.FunctionComponent<Props> = ({
-	data,
-	error,
-	loading,
-}) => {
-	const {
-		data: {
-			api: { standings },
-		},
-	} = data;
+const LeagueTable = ({ standings }: Props) => {
 	const classes = useStyles();
-	return loading ? (
-		<>
-			<Helmet>
-				<title>Loading | 리그순위 </title>
-			</Helmet>
-			<Loader />
-		</>
-	) : error ? (
-		<>
-			<Message text={error} />
-		</>
-	) : (
+	return (
 		<>
 			<Helmet>
 				<title>리그순위</title>
@@ -157,12 +132,8 @@ const LeagueTable: React.FunctionComponent<Props> = ({
 					<TableBody>
 						{standings &&
 							standings[0].length > 0 &&
-							standings[0].map((standing: object) => (
-								<TableRow
-									className={classes.tableCellRow}
-									key={standing.team_id}
-									style={{ fontSize: '20px' }}
-								>
+							standings[0].map((standing) => (
+								<TableRow key={standing.team_id} style={{ fontSize: '20px' }}>
 									<CustomTableCell
 										component="th"
 										scope="row"
@@ -183,7 +154,7 @@ const LeagueTable: React.FunctionComponent<Props> = ({
 											alt="team-logo"
 										/>
 									</CustomTableCell>
-									<CustomTableCell className={classes.teamContainer}>
+									<CustomTableCell>
 										<Link to={`/team/${standing.team_id}`}>
 											{standing.teamName} {'>'}
 										</Link>
@@ -221,11 +192,4 @@ const LeagueTable: React.FunctionComponent<Props> = ({
 	);
 };
 
-LeagueTable.propTypes = {
-	leagueId: PropTypes.number,
-	standing: PropTypes.array,
-	loading: PropTypes.bool.isRequired,
-	error: PropTypes.string,
-};
-
-export default withRouter(LeagueTable);
+export default LeagueTable;

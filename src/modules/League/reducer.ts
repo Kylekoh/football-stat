@@ -7,7 +7,7 @@ import {
 } from './actions';
 
 const initialState: LeagueState = {
-	infos: {
+	tables: {
 		loading: false,
 		data: null,
 		error: null,
@@ -17,7 +17,7 @@ const initialState: LeagueState = {
 const teamInfo = createReducer<LeagueState, LeagueAction>(initialState, {
 	[GET_LEAGUETABLES]: (state) => ({
 		...state,
-		infos: {
+		tables: {
 			loading: true,
 			data: null,
 			error: null,
@@ -25,7 +25,7 @@ const teamInfo = createReducer<LeagueState, LeagueAction>(initialState, {
 	}),
 	[GET_LEAGUETABLES_SUCCESS]: (state, action) => ({
 		...state,
-		infos: {
+		tables: {
 			loading: false,
 			data: action.payload,
 			error: null,
@@ -33,7 +33,7 @@ const teamInfo = createReducer<LeagueState, LeagueAction>(initialState, {
 	}),
 	[GET_LEAGUETABLES_ERROR]: (state, action) => ({
 		...state,
-		infos: {
+		tables: {
 			loading: false,
 			data: null,
 			error: action.payload,
