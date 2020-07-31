@@ -28,9 +28,9 @@
 
 **기술 스택**
 
+- Football-stat은 정적타입 언어인 타입스크립트를 활용하여 만들어졌습니다.
 - 데이터 상태 관리를 위해 Redux, React Hooks를 사용하였습니다.
-- Redux 는 DUCKS 패턴으로 작성되었습니다.
-- Redux, Redux-Thunk를 활용하여 API 호출 기능을 개발하였습니다.
+- Redux-Thunk Middleware를 활용하여 API 호출 기능을 개발하였습니다.
 
 **사이트 방문하기**
 https://kylekoh.github.io/football-stat/
@@ -41,6 +41,7 @@ https://kylekoh.github.io/football-stat/
 ### Built With
 
 - [React JS](https://ko.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
 - [React Hooks](https://ko.reactjs.org/docs/hooks-intro.html)
 - [Redux](https://redux.js.org/)
 - [Redux Thunk](https://github.com/reduxjs/redux-thunk)
