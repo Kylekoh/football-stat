@@ -12,9 +12,7 @@ export const getTeamInfo = (
 	try {
 		const infos: any = await footballApi.teamInfo(id);
 		dispatch(success(infos));
-		// dispatch({ type: GET_TEAMINFO_SUCCESS, infos });
 	} catch (e) {
 		dispatch(failure(e));
-		// dispatch({ type: GET_TEAMINFO_ERROR, error: e });
 	}
 };
