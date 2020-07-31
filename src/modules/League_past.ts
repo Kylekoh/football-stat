@@ -6,15 +6,18 @@ const GET_LEAGUETABLES = 'GET_LEAGUETABLES'; // 요청 시작
 const GET_LEAGUETABLES_SUCCESS = 'GET_LEAGUETABLES_SUCCESS'; // 요청 성공
 const GET_LEAGUETABLES_ERROR = 'GET_LEAGUETABLES_ERROR'; // 요청 실패
 
-export const getLeagueTables = (id) => async (dispatch) => {
+export const getLeagueTables = (id: number) => async (dispatch) => {
 	dispatch({ type: GET_LEAGUETABLES }); // 요청 시작
 	try {
 		const tables = await footballApi.leagueTable(id);
+
 		dispatch({ type: GET_LEAGUETABLES_SUCCESS, tables });
 	} catch (e) {
 		dispatch({ type: GET_LEAGUETABLES_ERROR, error: e });
 	}
 };
+
+
 
 const initialState = {
 	tables: {

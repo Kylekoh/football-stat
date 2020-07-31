@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Loader from './Loader';
 import Message from './Message';
 import LeagueName from './LeagueName';
@@ -81,7 +81,17 @@ const CustomTableCell = withStyles((theme) => ({
 	},
 }))(TableCell);
 
-const LeagueTable = ({ data, error, loading }) => {
+interface Props {
+	data: any;
+	error: string;
+	loading: boolean;
+}
+
+const LeagueTable: React.FunctionComponent<Props> = ({
+	data,
+	error,
+	loading,
+}) => {
 	const {
 		data: {
 			api: { standings },
@@ -147,7 +157,7 @@ const LeagueTable = ({ data, error, loading }) => {
 					<TableBody>
 						{standings &&
 							standings[0].length > 0 &&
-							standings[0].map((standing) => (
+							standings[0].map((standing: object) => (
 								<TableRow
 									className={classes.tableCellRow}
 									key={standing.team_id}

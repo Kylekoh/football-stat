@@ -1,7 +1,12 @@
 import React from 'react';
 import TeamInfoContainer from '../Containers/TeamInfoContainer';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-const Teampage = (props) => {
+interface MatchParams {
+	id: string;
+}
+
+const Teampage: React.FC<RouteComponentProps<MatchParams>> = (props) => {
 	const {
 		match: {
 			params: { id },
@@ -15,4 +20,4 @@ const Teampage = (props) => {
 	);
 };
 
-export default Teampage;
+export default withRouter(Teampage);

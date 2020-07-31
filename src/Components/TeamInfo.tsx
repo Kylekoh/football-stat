@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Helmet from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import Loader from './Loader';
 import Message from './Message';
 
@@ -118,7 +117,13 @@ const Stat = styled.li`
 	}
 `;
 
-const TeamInfo = ({ data, error, loading }) => {
+interface Props {
+	data: object | string;
+	error: string;
+	loading: boolean;
+}
+
+const TeamInfo: React.FunctionComponent<Props> = ({ data, error, loading }) => {
 	const {
 		data: {
 			api: { teams },
@@ -171,13 +176,6 @@ const TeamInfo = ({ data, error, loading }) => {
 			</Container>
 		</>
 	);
-};
-
-TeamInfo.propTypes = {
-	teams: PropTypes.object,
-	statistics: PropTypes.object,
-	loading: PropTypes.bool.isRequired,
-	error: PropTypes.string,
 };
 
 export default TeamInfo;

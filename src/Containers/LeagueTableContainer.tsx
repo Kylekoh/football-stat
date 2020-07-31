@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import LeagueTable from '../Components/LeagueTable';
 import { useSelector, useDispatch } from 'react-redux';
-import { getLeagueTables } from '../modules/League';
+import { getLeagueTables } from '../modules/League_past';
 import Loader from '../Components/Loader';
 
-const LeagueTableContainer = (props) => {
+interface Props {
+	id: number;
+}
+
+const LeagueTableContainer: React.FunctionComponent<Props> = (props) => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {

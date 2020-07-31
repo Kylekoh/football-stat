@@ -1,10 +1,15 @@
 import React from 'react';
 import LeagueTableContainer from '../Containers/LeagueTableContainer';
+import { withRouter, RouteComponentProps } from 'react-router';
 
-const LeaguePage = (props) => {
+interface MatchParams {
+	id: string;
+}
+
+const LeaguePage: React.FC<RouteComponentProps<MatchParams>> = (props) => {
 	const {
 		match: {
-			params: { id = 524 },
+			params: { id = '524' },
 		},
 	} = props;
 
@@ -15,4 +20,4 @@ const LeaguePage = (props) => {
 	);
 };
 
-export default LeaguePage;
+export default withRouter(LeaguePage);

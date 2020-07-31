@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, withRouter, RouteComponentProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -26,7 +26,11 @@ const List = styled.ul`
 	}
 `;
 
-const Item = styled.li`
+interface ItemPropsType {
+	current: boolean;
+}
+
+const Item = styled.li<ItemPropsType>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -108,7 +112,9 @@ const TitleContainer = styled.div`
 	}
 `;
 
-const LeagueName = ({ location: { pathname } }) => (
+const LeagueName: React.FC<RouteComponentProps> = ({
+	location: { pathname },
+}) => (
 	<>
 		<Container>
 			<List>

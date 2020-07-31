@@ -4,7 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getTeamInfo } from '../modules/Team';
 import Loader from '../Components/Loader';
 
-const TeamInfoContainer = (props) => {
+interface Props {
+	id: number;
+}
+
+const TeamInfoContainer: React.FunctionComponent<Props> = (props) => {
 	const team_id = props.id;
 	const dispatch = useDispatch();
 

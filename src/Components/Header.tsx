@@ -39,7 +39,11 @@ const Logo = styled.div`
 	}
 `;
 
-const List = styled.ul`
+interface MenuPropsType {
+	menuToggle: boolean;
+}
+
+const List = styled.ul<MenuPropsType>`
 	display: flex;
 
 	@media (max-width: 768px) {
@@ -91,7 +95,7 @@ const Menu = styled.a`
 	}
 `;
 
-const HeaderComponent = (props) => {
+const HeaderComponent = () => {
 	const [menuToggle, setMenuToggle] = useState(false);
 
 	const handleToggle = () => {
